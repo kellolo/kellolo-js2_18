@@ -113,6 +113,9 @@ let catalog = {
     }
 }
 
+export default () => {
+    basket.init();
+    catalog.init();
+}
 
-basket.init();
-catalog.init();
+
