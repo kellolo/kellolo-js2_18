@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        form { 
+            width: 300px;
+        }
+        label {
+            display: block;
+            margin: 5px;
+        }
+        div {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <form action="#" id="uForm">  
+        <fieldset>
+            <label>
+                <input type="radio" name="size" value="small" data-price='50' data-kkal="20"> small. 50 rub / 20 kkal
+            </label>
+            <label>
+                <input type="radio" name="size" value="big" data-price='100' data-kkal="40"> big. 100 rub / 40 kkal
+            </label>
+        </fieldset>
+        <fieldset>
+            <label>
+                <input type="checkbox" name="cheese" value="cheese" data-price='10' data-kkal="20"> add Cheese. 10 rub / 20 kkal
+            </label>
+            <label>
+                <input type="checkbox" name="salad" value="salad" data-price='20' data-kkal="5"> add Salad. 20 rub / 5 kkal
+            </label>
+            <label>
+                <input type="checkbox" name="potatto" value="potatto" data-price='15' data-kkal="10"> add Potatto. 15 rub / 10 kkal
+            </label>
+            <label>
+                <input type="checkbox" name="spice" value="spice" data-price='15' data-kkal="0"> add Spice. 15 rub / 0 kkal
+            </label>
+            <label>
+                <input type="checkbox" name="mayonnaise" value="mayonnaise" data-price='20' data-kkal="5"> add Mayonnaise. 20 rub / 5 kkal
+            </label>
+        </fieldset>
+        <fieldset>
+            <h2>Итого</h2>
+			 <p> <span id='totalPrice'>0</span> рублей</p>
+			 <p> <span id='totalKkal'>0</span> каллорий</p>
+        </fieldset>
+    </form>
+    
+    <script src='burgers.js'></script>
+</body>
+</html>
