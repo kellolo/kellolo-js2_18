@@ -1,7 +1,7 @@
 let names = ['HTML5 & CSS3', 'JavaScript base', 'JavaScript advanced', 'PHP', 'React'];
 let prices = [100, 120, 130, 50, 150];
 let ids = [1, 2, 3, 4, 5];
-let imgs = ['http://placehold.it/200x150', 'http://placehold.it/200x150', 'http://placehold.it/200x150', 'http://placehold.it/200x150', 'http://placehold.it/200x150',]
+let imgs = ['http://placehold.it/200x150', 'http://placehold.it/200x150', 'http://placehold.it/200x150', 'http://placehold.it/200x150', 'http://placehold.it/200x150', ]
 
 let createItem = index => ({
     product_name: names[index],
@@ -38,7 +38,7 @@ let basket = {
     },
     _render() {
         let htmlStr = '';
-        this.items.forEach (item => {
+        this.items.forEach(item => {
             htmlStr += `<div class="basket-item">
                             <img src="http://placehold.it/100x80" alt="${item.product_name}">
                             <div class="product-desc">
@@ -52,13 +52,15 @@ let basket = {
                             </div>
                         </div>`
         });
-        document.querySelector(this.container).innerHTML = htmlStr; 
+        document.querySelector(this.container).innerHTML = htmlStr;
     },
     add(item) {
         let find = this.items.find(el => el.id_product == item.id);
 
         if (!find) {
-            this.items.push(Object.assign({}, createItem(+item.id - 1), {amount: 1}));
+            this.items.push(Object.assign({}, createItem(+item.id - 1), {
+                amount: 1
+            }));
         } else {
             find.amount++;
         }
@@ -95,7 +97,7 @@ let catalog = {
     },
     _render() {
         let htmlStr = '';
-        this.items.forEach (item => {
+        this.items.forEach(item => {
             htmlStr += `<div class="catalog-item">
                         <img src="${item.img}" alt="${item.product_name}">
                         <div class="desc">
@@ -109,7 +111,7 @@ let catalog = {
                         </div>
                     </div>`
         })
-        document.querySelector(this.container).innerHTML = htmlStr;      
+        document.querySelector(this.container).innerHTML = htmlStr;
     }
 }
 
