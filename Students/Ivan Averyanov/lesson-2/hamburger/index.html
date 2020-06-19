@@ -4,6 +4,18 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
+	<style>
+		#uForm{
+			width: 50vw;
+    		display: flex;
+    		flex-direction: column;
+		}
+
+		.hStuffing{
+			display: flex;
+		}
+
+	</style>
 </head>
 <body>
 	
@@ -19,7 +31,7 @@
 				  <input type="radio" name="Size" value="female" data-price="50" data-cal="20"> Маленький (50 рублей, 20 калорий)
 			 </label>
 		</fieldset>
-		<fieldset>
+		<fieldset class = 'hStuffing'>
 			 <label>
 				  <input type="checkbox" name="stuffing" value="cheese" data-price="10" data-cal="20"> 
 				  Сыр (+10 рублей, +20 калорий)
@@ -51,7 +63,7 @@
 		</fieldset>
   </form>
 
-  <button id="okBtn">Заказать</button>
+  <button class="button" id="okBtn">Заказать</button>
 
 	<script src="app.js"></script>
 </body>

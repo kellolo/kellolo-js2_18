@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        form {
+            width: 300px
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form action="#" id="uForm">
+        <fieldset>
+            <label>
+                <input type="radio" name="Hamburger" value="Большой" data-price="100" data-calories="40"> Большой<br>(100 рублей, 40 калорий)
+            </label>
+            <label>
+                <input type="radio" name="Hamburger" value="Маленький" data-price="50" data-calories="20"> Маленький<br>(50 рублей, 20 калорий).
+            </label>
+        </fieldset>
+        <fieldset>
+            <label>
+                <input type="radio" name="Filling" value="С сыром" data-price="10" data-calories="20">  С сыром<br>(+10 рублей, +20 калорий)
+            </label>
+            <label>
+                <input type="radio" name="Filling" value="С салатом" data-price="20" data-calories="5"> С салатом<br>(+20 рублей, +5 калорий)
+            </label>
+            <label>
+                <input type="radio" name="Filling" value="С картофелем" data-price="15" data-calories="10"> С картофелем<br>(+15 рублей, +10 калорий)
+            </label>
+        </fieldset>
+        <fieldset>
+            <label>
+                <input type="checkbox" name="add" value="Посыпать приправой" data-price="15" data-calories="0"> Посыпать приправой<br>(+15 рублей, +0 калорий)
+            </label>
+            <label>
+                <input type="checkbox" name="add" value="Полить майонезом" data-price="20" data-calories="5"> Полить майонезом<br>(+20 рублей, +5 калорий)
+            </label>
+        </fieldset>
+    </form>
+
+    <button id="okBtn">Заказать</button>
+    <script>
+        let form = document.querySelector ('#uForm')
+        let btn = document.querySelector ('#okBtn')
+        let order = []
+
+        btn.addEventListener ('click', addOrder)
+
+        function addOrder () {
+            let newOrder = new Order ('Hamburger', 'Filling', 'add')
+            order.push (newOrder)
+        }
+
+        class Order {
+            constructor (Hamburger, Filling, add) {
+                this.Hamburger = this._text (Hamburger)
+                this.Filling = this._text (Filling)
+                this.add = this._text (add)
+                this.summ = this._summFn()
+            }
+
+            _text (size) {
+                let obj = document.querySelectorAll (`input[name=${size}]`)
+                obj.forEach(el => {
+                    console.log(obj.attributes.value)
+                })
+                return obj.value
+            }
+        /*    _text (size) {
+                let obj = document.querySelector (`input[name=${size}]`)
+                return obj.value
+           } */
+        
+            _summFn () {
+                let sum = 0;
+                for (let key in this.Hamburger) {
+                    sum += this.Hamburger[key].price * this.Hamburger[key].count;
+                }
+                return sum;
+            }
+        }
+    </script>
+</body>
+</html>

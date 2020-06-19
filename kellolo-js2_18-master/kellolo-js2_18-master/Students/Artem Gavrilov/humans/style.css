@@ -1,0 +1,37 @@
+.box {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px calc(50% - 500px) 0;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+form {
+    border: 3px solid;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 300px;
+}
+
+fieldset {
+    border: 1px solid;
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    margin: 10px;
+}
+
+.acts {
+    display: flex;
+    width: 400px;
+    justify-content: space-between;
+}
+
+.act-box_button {
+    text-align: center;
+}

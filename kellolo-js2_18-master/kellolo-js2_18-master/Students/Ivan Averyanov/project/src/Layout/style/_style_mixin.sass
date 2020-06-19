@@ -1,0 +1,15 @@
+$border_botton: 1px solid #eaeaea
+$font-f: 'Lato'
+$color-hover : rgba(241, 109, 127, 1)
+
+@mixin grid($number_blocs,$marg-ri)
+    width: ((100% -(($number_blocs - 1) * $marg-ri)) / $number_blocs)
+    margin-right: $marg-ri
+    text-align: center
+
+@mixin text_style ($ff,$fs,$fw,$col)
+    font-family: $ff
+    font-size: $fs
+    font-weight: $fw
+    color: $col
+    text-transform: uppercase

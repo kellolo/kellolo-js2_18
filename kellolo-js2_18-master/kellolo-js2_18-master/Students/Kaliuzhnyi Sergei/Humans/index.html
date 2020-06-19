@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form {
+            width: 300px
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form action="#" id="uForm">
+        <fieldset>
+            <label>
+                <input type="text" name="Name"> Enter Name
+            </label>
+            <label>
+                <input type="text" name="Age"> Enter Age
+            </label>
+        </fieldset>
+        <fieldset>
+            <label>
+                <input type="radio" name="Gender" value="male" data-mother="0"> male
+            </label>
+            <label>
+                <input type="radio" name="Gender" value="female" data-mother="1"> female
+            </label>
+        </fieldset>
+        <fieldset>
+            <label>
+                <input type="checkbox" name="Hobbies" value="eat"> Еда
+            </label>
+            <label>
+                <input type="checkbox" name="Hobbies" value="gym"> Качалка
+            </label>
+            <label>
+                <input type="checkbox" name="Hobbies" value="tv-show"> Сериалы
+            </label>
+            <label>
+                <input type="checkbox" name="Hobbies" value="walk"> Гулять
+            </label>
+        </fieldset>
+        <fieldset>
+            <legend>choose payment rate</legend>
+            <label>
+                <input type="radio" name="rate" value="5"> 5
+            </label>
+            <label>
+                <input type="radio" name="rate" value="7"> 7
+            </label>
+            <label>
+                <input type="radio" name="rate" value="7"> 9
+            </label>
+        </fieldset>
+        <div id="firstHumanField"></div>
+        <div id="secondHumanField"></div>
+        <div id="statusField"></div>
+    </form>
+
+    <button id="firstBtn">Add first user</button>
+    <button id="secondBtn">Add second user</button>
+    <button id="workButton">send user to work</button>
+
+
+    <script>
+        //1) сделать так, чтобы метод goWork приносил человеку доход, определяемый его "особым" ежечасным доходом * на раб время за 1 рабочий "день"
+        //2) дать возможность персонажам "связываться узами"
+        //3) запрещать делать покупки при отр. балансе
+        //4) разрешать персонажам заводить новых персонажей
+        //*** если сделать хтмл
+
+        let form = document.querySelector ('#uForm');
+        let firstBtn = document.querySelector ('#firstBtn');
+        let secondBtn = document.querySelector ('#secondBtn');
+        let humans = [];
+        let firstHumanField = document.querySelector ('#firstHumanField');
+        let secondHumanField = document.querySelector ('#secondHumanField');
+        let workButton = document.querySelector ('#workButton');
+        let statusField = document.querySelector('#statusField')
+        
+
+        firstBtn.addEventListener ('click', addFirstHuman);
+        secondBtn.addEventListener ('click', addSecondHuman);
+        workButton.addEventListener ('click', sendHumanToWork);
+
+        function sendHumanToWork(){
+            let index = getWorkIndex();
+            if(index == 2){
+                let profit = (+humans[0].rate) * 8 * index;
+                statusField.innerHTML = `<p>${humans[0].Name} went to work and earned${profit}& a day</p>`
+            } else{
+                let profit = (+humans[1].rate) * 8 * index;
+                statusField.innerHTML = `<p>${humans[0].Name} went to work and earned${profit}& a day</p>`
+            }
+        };
+
+        function getWorkIndex(){
+            let key = 0;
+            for (key in humans){
+                if(humans[key].gender == 'male'){
+                    return 2;
+                } else{
+                    return 1.7
+                }
+            }
+        };
+
+        function addFirstHuman () {
+            let newHuman = new Human ('Name', 'Age', 'Gender', 'Hobbies', 'rate');
+            humans.push (newHuman);
+            firstHumanField.innerHTML = `<p>Name: ${humans[0].Name}</p>
+                                        <p>Age: ${humans[0].Age}</p>
+                                        <p>Gender: ${humans[0].Gender}</p>
+                                        <p>Hobbies: ${humans[0].Hobbies}</p>`;
+        }
+
+        function addSecondHuman () {
+            let newHuman = new Human ('Name', 'Age', 'Gender', 'Hobbies', 'rate');
+            humans.push (newHuman);
+            secondHumanField.innerHTML = `<p>Name: ${humans[1].Name}</p>
+                                    <p>Age: ${humans[1].Age}</p>
+                                    <p>Gender: ${humans[1].Gender}</p>
+                                    <p>Hobbies: ${humans[1].Hobbies}</p>`;
+        }
+
+        class Human {
+            constructor(name, age, gender, hobbies, rate) {
+                this.Name = this._text (name)
+                this.Age = this._text (age)
+                this.Gender = this._check (gender)
+                this.Hobbies = this._getArray (hobbies)
+                this.relationship = '';
+                this.childs =[];
+                this.rate = this._getRate(rate)
+            }
+
+            _getRate(attrName){
+                let obj =document.querySelector(`input[name=${attrName}]:checked`);
+                return obj.value;
+            }
+
+            _text (attrName) {
+                let obj = document.querySelector (`input[name=${attrName}]`);
+                return obj.value;
+            }
+            _check (attrName) {
+                let obj = document.querySelector (`input[name=${attrName}]:checked`);
+                return obj.value;
+            }
+            _getArray (attrName) {
+                let objArr = [...document.querySelectorAll (`input[name=${attrName}]:checked`)];
+                let arr = objArr.map(el => el.value);
+                return arr;
+            }
+
+            greet(pers = 'you') {
+                console.log(this.Name + ` greets ${pers}!`)
+            }
+
+            goWork() {
+                let rate = 5;
+                let workingHours = 8;
+                let profit = this.index * rate * workingHours;
+                console.log(this.Name + ` went to work and earned ${profit}$ a day.`);
+                this.money += profit;
+            }
+            
+        };
+
+        /*class Human {
+            constructor(name, age) {
+                this.humanName = name;
+                this.humanAge = age;
+                this.relationship = '';
+                this.childs =[];
+            }
+            greet(pers = 'you') {
+                console.log(this.humanName + ` greets ${pers}!`)
+            }
+
+            goWork() {
+                let rate = 5;
+                let workingHours = 8;
+                let profit = this.index * rate * workingHours;
+                console.log(this.humanName + ` went to work and earned ${profit}$ a day.`);
+                this.money += profit;
+            }
+            
+        }
+
+        class Male extends Human {
+            constructor(name, age) {
+                super(name, age);
+                this.gender = 'male';
+                this.fishes = 0;
+                this.money = 0;
+                this.index = 2;
+            }
+            goFishing() {
+                console.log(this.humanName + ' goes fishing.');
+                let fishes = Math.round(Math.random() * 10);
+                console.log(this.humanName + ` gets ${fishes} fishes`);
+                this.fishes += fishes;NewPersonGender == 1
+            }
+            makeNewRelation(partner){
+                if(this.gender != partner.gender){
+                this.relationship = `in relationship with ${partner.humanName}`;
+                console.log(this.relationship);
+                }
+            }
+        }
+
+        class Female extends Human {
+            constructor(name, age) {
+                super(name, age);
+                this.gender = 'female';
+                this.money = 0;
+                this.index = 1.7;
+            }
+
+            goShopping() {
+                let purchasePrice = (Math.round(Math.random() * 10))+1;
+                if(this.money >= purchasePrice){
+                    console.log(this.humanName + ` spent ${purchasePrice} dollars.`);
+                    this.money -= purchasePrice;
+                } else{
+                    console.log(this.humanName + ' does not have enough money for shopping')
+                }
+            }
+            makeNewRelation(partner){
+                if(this.gender != partner.gender){
+                this.relationship = `in relationship with ${partner.humanName}`;
+                console.log(this.relationship);
+                }
+            }
+
+            makeNewPerson(partner){
+                let NewPersonGender = this.chooseGender();
+                if(NewPersonGender){
+                    this.createNewMale()
+                } else{
+                    this.createNewFemale()
+                }
+                console.log(this.child);
+            }
+
+            chooseGender(){
+                let genderOfNewPerson = Math.round(Math.random()*1);
+                return genderOfNewPerson;
+            }
+
+            createNewFemale(){
+                let child = new Female('','');
+                return this.childs.push(child);
+            }
+            createNewMale(){
+                let child = new Male('','');
+                return this.childs.push(child);
+            }
+        }
+
+        let oleg = new Male('Oleg', 28);
+        let olga = new Female('Olga', 25);
+        */
+        
+    </script>
+</body>
+</html>

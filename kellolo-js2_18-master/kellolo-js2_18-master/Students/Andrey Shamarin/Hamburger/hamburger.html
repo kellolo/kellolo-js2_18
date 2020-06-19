@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        fieldset {
+            width: 400px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="#" id="uForm">
+        <fieldset>
+            <label>
+                <input type="radio" name="Size" value="Small" data-price="50" data-cal="20"> Маленький (50 рублей, 20
+                калорий)
+            </label>
+            <label>
+                <input type="radio" name="Size" value="Big" data-price="100" data-cal="40"> Большой (100 рублей, 40
+                калорий)
+            </label>
+        </fieldset>
+        <fieldset>
+            <label>
+                <input type="checkbox" name="Topping" value="Cheese" data-price="10" data-cal="20"> С сыром (+10 рублей,
+                +20 калорий)
+            </label>
+            <label>
+                <input type="checkbox" name="Topping" value="Salad" data-price="20" data-cal="5"> С салатом (+20 рублей,
+                +5 калорий)
+            </label>
+            <label>
+                <input type="checkbox" name="Topping" value="Potato" data-price="15" data-cal="10"> С картофелем (+15
+                рублей, +10 калорий)
+            </label>
+        </fieldset>
+        <fieldset>
+            <label>
+                <input type="checkbox" name="Topping" value="Spices" data-price="15" data-cal="0"> Посыпать приправой
+                (+15 рублей, +0 калорий)
+            </label>
+            <label>
+                <input type="checkbox" name="Topping" value="Mayo" data-price="20" data-cal="5"> Полить майонезом (+20
+                рублей, +5 калорий)
+            </label>
+        </fieldset>
+    </form>
+    <fieldset>
+        <button id="okBtn">Рассчитать</button>
+        <button id="delBtn">Удалить</button>
+        <button id="clearBtn">Отчистить</button>
+        <div id="calculate">Цена: <span id="price"> </span> Калорий: <span id="cal"></span></div>
+    </fieldset>
+
+    <script>
+        let form = document.querySelector('#uForm')
+        let okBtn = document.querySelector('#okBtn')
+        let delBtn = document.querySelector('#delBtn')
+        let clearBtn = document.querySelector('#clearBtn')
+        let priceField = document.querySelector('#price')
+        let calField = document.querySelector('#cal')
+        let hamburgers = []
+
+        okBtn.addEventListener('click', addHam)
+        delBtn.addEventListener('click', delHam)
+        clearBtn.addEventListener('click', clearHam)
+
+        function addHam() {
+            let newHam = new Hamburger('Size', 'Topping')
+            hamburgers.push(newHam)
+            innerPriceAndCal ();
+        }
+
+        function innerPriceAndCal() {
+            let arrPrice = hamburgers.map(el => parseInt(el.Price));
+            let sumPrice = arrPrice.reduce(function (a, b) {
+                return a + b
+            });
+            priceField.innerHTML = sumPrice;
+            let arrCal = hamburgers.map(el => parseInt(el.Cal));
+            let sumCal = arrCal.reduce(function (a, b) {
+                return a + b
+            });
+            calField.innerHTML = sumCal;
+        }
+
+
+        function delHam() {
+            hamburgers = hamburgers.slice(0, -1); // удаляет последний бургер из массива
+            innerPriceAndCal (); // пересчитывает суммарную стоимость и калории
+        }
+
+        function clearHam() { // отчищает массив бургеров
+            hamburgers = [];
+            priceField.innerHTML = '';
+            calField.innerHTML = '';
+        }
+
+        class Hamburger {
+            constructor(size, topping) {
+                this.Size = this._check(size)
+                this.Topping = this._getArray(topping)
+                this.Price = this._getPrice(size, topping)
+                this.Cal = this._getCal(size, topping)
+            }
+            _check(attrName) {
+                let obj = document.querySelector(`input[name=${attrName}]:checked`);
+                return obj.value
+            }
+            _getArray(attrName) {
+                let objArr = [...document.querySelectorAll(`input[name=${attrName}]:checked`)]
+                let arr = objArr.map(el => el.value);
+                return arr
+            }
+            _getPrice(attrName1, attrName2) {
+                // получаем цену за размер бургера
+                let obj = document.querySelector(`input[name=${attrName1}]:checked`);
+                let sizePrice = parseInt(obj.dataset.price);
+
+                // получаем суммарную цену добавок
+                let objArr = [...document.querySelectorAll(`input[name=${attrName2}]:checked`)]
+                let arrPrice = objArr.map(el => parseInt(el.dataset.price));
+                let toppingsPrice = arrPrice.reduce(function (a, b) {
+                    return a + b;
+                });
+
+                return toppingsPrice + sizePrice;
+            }
+            _getCal(attrName1, attrName2) {
+                // получаем калории за размер бургера
+                let obj = document.querySelector(`input[name=${attrName1}]:checked`);
+                let sizeCal = parseInt(obj.dataset.cal);
+
+                // получаем суммарные калории добавок
+                let objArr = [...document.querySelectorAll(`input[name=${attrName2}]:checked`)]
+                let arrCal = objArr.map(el => parseInt(el.dataset.cal));
+                let toppingsCal = arrCal.reduce(function (a, b) {
+                    return a + b;
+                });
+
+                return toppingsCal + sizeCal;
+            }
+        }
+    </script>
+</body>
+
+</html>

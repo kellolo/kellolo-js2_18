@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="block">
+        <form action="#" id="form">
+            <h2>Размер гамбургера</h2>
+            <fieldset>
+                <label><input type="radio" id="input" name="size" data-price="100" data-cal="40"> Большой (100 рублей)
+                </label>
+                <label><input type="radio" id="input" name="size" data-price="50" data-cal="20"> Маленький (50 рублей)
+                </label>
+            </fieldset>
+            <h2>Начинка для гамбургера</h2>
+            <fieldset>
+                <label><input type="radio" id="input" name="filling" data-price="10" data-cal="20"> Сыр (+10 рублей)</label>
+                <label><input type="radio" id="input" name="filling" data-price="20" data-cal="5"> Салат (+20 рублей)
+                </label>
+                <label><input type="radio" id="input" name="filling" data-price="15" data-cal="10"> Картофель (+15 рублей)
+                </label>
+            </fieldset>
+            <h2>Дополнительно</h2>
+            <fieldset>
+                <label><input type="checkbox" id="input" name="addition" data-price="15" data-cal="0"> Приправа (+15
+                    рублей)</label>
+                <label><input type="checkbox" id="input" name="addition" data-price="20" data-cal="5"> Майонез (+20
+                    рублей)</label>
+            </fieldset>
+        </form>
+        <button id="act">Show info</button>
+    </div>
+    <script src="calc.js"></script>
+</body>
+
+</html>

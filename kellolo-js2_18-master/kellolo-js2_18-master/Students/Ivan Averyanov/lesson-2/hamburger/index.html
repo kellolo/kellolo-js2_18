@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	
+	<form id="uForm">
+		<fieldset>
+			 <h2>Гамбургер</h2>
+		</fieldset>
+		<fieldset>
+			 <label>
+				  <input type="radio" data-id= '1' name="Size" value="male" data-price="100" data-cal="40"> Большой (100 рублей, 40 калорий)
+			 </label>
+			 <label>
+				  <input type="radio" name="Size" value="female" data-price="50" data-cal="20"> Маленький (50 рублей, 20 калорий)
+			 </label>
+		</fieldset>
+		<fieldset>
+			 <label>
+				  <input type="checkbox" name="stuffing" value="cheese" data-price="10" data-cal="20"> 
+				  Сыр (+10 рублей, +20 калорий)
+			 </label>
+			 <label>
+				  <input type="checkbox" data-id='4'  name="stuffing" value="salad" data-price="20" data-cal="5">
+				  Салат (+20 рублей, +5 калорий)
+			 </label>
+			 <label>
+				  <input type="checkbox" name="stuffing" value="potato" data-price="15" data-cal="10">
+				  Картофель (+15 рублей, +10 калорий)
+			 </label>
+			 <label>
+				  <input type="checkbox" name="stuffing" value="spice" data-price="15" data-cal="0">
+				  Приправа (+15 рублей, +0 калорий)
+			 </label>
+			 <label>
+				  <input type="checkbox" name="stuffing" value="mayo" data-price="20" data-cal="5">
+				  Майонез (+20 рублей, +5 калорий)
+			 </label>
+
+		</fieldset>
+
+		<fieldset>
+			 <h2>Итого</h2>
+			 <p> <span id='totalPrice'>0</span> рублей</p>
+			 <p> <span id='totalCal'>0</span> каллорий</p>
+
+		</fieldset>
+  </form>
+
+  <button id="okBtn">Заказать</button>
+
+	<script src="app.js"></script>
+</body>
+</html>

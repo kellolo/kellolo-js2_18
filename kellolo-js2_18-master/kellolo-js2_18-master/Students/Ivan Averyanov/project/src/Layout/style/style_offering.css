@@ -1,0 +1,72 @@
+.offering {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 98px;
+    justify-content: space-between;
+    min-height: 823px;
+    margin-bottom: 100px;
+}
+
+.offering_general {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.offering__men {
+    background-image: url(../img/offering/men.png);
+    background-repeat: no-repeat;
+    height: 542px;
+    width: 560px;
+}
+
+.offering__accesories {
+    background-image: url(../img/offering/accesories.png);
+    background-repeat: no-repeat;
+    height: 261px;
+    width: 560px;
+
+}
+
+.offering__women {
+    background-image: url(../img/offering/women.png);
+    background-repeat: no-repeat;
+    height: 261px;
+    width: 560px;
+}
+
+.offering__kids {
+    background-image: url(../img/offering/kids.png);
+    background-repeat: no-repeat;
+    height: 542px;
+    width: 560px;
+}
+
+.offering h1 {
+    font-family: 'Lato';
+    font-size: 18px;
+    font-weight: 900;
+    color: #222222;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+}
+
+.offering h2 {
+    font-family: 'Lato';
+    font-size: 30px;
+    font-weight: 900;
+    color: #f16d7f;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+}
+
+.men__H,
+.accesories__H,
+.women__H,
+.kids__H
+    {
+    margin-top: 26px;
+    display: inline-block;
+    background-color: #ffff;
+    padding: 16px 19px;
+}

@@ -38,26 +38,26 @@ let basket = {
 		this.renderProductInBasket(product);
 		this.renderTotalSum();
 		this.addRemoveBtnsListeners();
- 	},
+	},
 
 
-	 addProductToObject(product) {
+	addProductToObject(product) {
 		if (this.products[product.id] == undefined) {
-			 this.products[product.id] = {
-				  price: product.price,
-				  name: product.name,
-				  count: 1
-			 }
+			this.products[product.id] = {
+				price: product.price,
+				name: product.name,
+				count: 1
+			}
 		} else {
-			 this.products[product.id].count++;
+			this.products[product.id].count++;
 		}
-  },
+	},
 
 	renderProductInBasket(product) {
 		let productExist = document.querySelector(`.product-count[data-id="${product.id}"]`);
 		if (productExist) {
-			 productExist.textContent++;
-			 return;
+			productExist.textContent++;
+			return;
 		}
 		let productRow = `
 				<div class="cart-list__product">
@@ -75,57 +75,55 @@ let basket = {
 		
 		let tbody = document.querySelector('.cart-list');
 		tbody.insertAdjacentHTML("afterBegin", productRow);
-  },
+	},
 
-    getTotalSum() {
+   getTotalSum() {
 		let sum = 0;
 		for (let key in this.products) {
 			 sum += this.products[key].price * this.products[key].count;
 		}
 		return sum;
-  },
+	},
 
-    renderTotalSum() {
+   renderTotalSum() {
 		document.querySelector('.cart-list__total-span').textContent = this.getTotalSum();
-  },
+	},
 
-    removeProductListener(event) {
+   removeProductListener(event) {
 		basket.removeProduct(event);
 		basket.renderTotalSum();
-  },
+	},
 
-    addRemoveBtnsListeners() {
+   addRemoveBtnsListeners() {
 		let btns = document.querySelectorAll('.product-remove-btn');
 		for (let i = 0; i < btns.length; i++) {
-			 btns[i].addEventListener('click', this.removeProductListener);
+			btns[i].addEventListener('click', this.removeProductListener);
 		}
-  },
+	},
 
-    removeProduct(event) {
+   removeProduct(event) {
 		let id = event.srcElement.dataset.id;
 		this.removeProductFromObject(id);
 		this.removeProductFromBasket(id);
-  },
+	},
 
-    removeProductFromBasket(id) {
+   removeProductFromBasket(id) {
 		let countTd = document.querySelector(`.product-count[data-id="${id}"]`);
 		if (countTd.textContent == 1) {
-			 countTd.closest('.cart-list__product').remove();
+			countTd.closest('.cart-list__product').remove();
 		} else {
-			 countTd.textContent--;
+			countTd.textContent--;
 		}
-  },
+	},
 
- 
-    removeProductFromObject(id) {
+   removeProductFromObject(id) {
 		if (this.products[id].count == 1) {
-			 delete this.products[id];
+			delete this.products[id];
 		} else {
-			 this.products[id].count--;
+			this.products[id].count--;
 		}
-  }
- 	 
-	};  
+	}
+};  
 
 export default ()=>{
 	basket();

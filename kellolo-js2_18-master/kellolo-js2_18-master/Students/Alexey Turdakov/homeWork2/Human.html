@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+
+    </div>
+
+    <script>
+        class Human {
+            constructor(name, age) {
+                this.humanName = name;
+                this.humanAge = age;
+                this.humanCash = Math.floor(Math.random() * 10000);
+                this.children = 0;
+            }
+            greet(pers = 'you') {
+                console.log(this.humanName + ` greets ${pers}!`)
+            }
+
+            //1) сделать так, чтобы метод goWork приносил человеку доход, определяемый его "особым" ежечасным доходом * на раб время за 1 рабочий "день"
+            goWork(position) {
+                if (position) {
+                    if (position == 'junior') {
+                        let cash = Math.floor(Math.random() * 100);
+                        this.humanCash += cash;
+                        console.log(
+                            `Сегодня ${this.humanName} ${position} заработал : ${cash}$. Всего у Humana ${this.humanName} накоплений ${this.humanCash}$`
+                        );
+                    }
+                    if (position == 'middle') {
+                        let cash = Math.floor(Math.random() * 1000); // +0. в зависимости от должности получает больше или меньше за раб.день
+                        this.humanCash += cash;
+                        console.log(
+                            `Сегодня ${this.humanName} ${position} заработал: ${cash}$. Всего у Humana ${this.humanName} накоплений ${this.humanCash}$`
+                        );
+                    }
+                    if (position == 'senior') {
+                        let cash = Math.floor(Math.random() * 10000);
+                        this.humanCash += cash;
+                        console.log(
+                            `Сегодня ${this.humanName} ${position} заработал: ${cash}$. Всего у Humana ${this.humanName} накоплений ${this.humanCash}$`
+                        );
+                    }
+                } else {
+                    console.log(
+                            `Сегодня ${this.humanName} заработал: 0$. Всего у Humana ${this.humanName} накоплений ${this.humanCash}$`
+                        );
+                }
+
+            }
+            //2) дать возможность персонажам "связываться узами"
+            getMarried(human){
+               if(this.__proto__.constructor.name === human.__proto__.constructor.name ){
+                   console.log("В россии запрещены однополые браки");
+               } else {
+                   console.log(`${this.humanName} и ${human.humanName} теперь связаны узами`)
+               }
+            }
+
+        }
+
+
+        class Male extends Human {
+            constructor(name, age) {
+                super(name, age);
+                this.fishes = 0;
+            }
+            goFishing() {
+                let fishes = Math.round(Math.random() * 10);
+                this.fishes += fishes;
+                console.log(
+                    `Human ${this.humanName} пошел на рыбалку и поймал: ${fishes}. Всего у олега рыб: ${this.fishes}`
+                );
+            }
+            
+           
+        }
+
+        class Female extends Human {
+            constructor(name, age) {
+                super(name, age);
+            }
+            //3) запрещать делать покупки при отр. балансе
+            goShopping() {
+                if(this.humanCash <= 0) {
+                    console.log(`Балланс ${this.humanName} = ${this.humanCash}. Невозможно выполнить операцию goShopping, пополните счет`);
+                } else {
+                    let shoppingCost = Math.round(Math.random() * 10000);
+                    this.humanCash -= shoppingCost;
+                    console.log(`${this.humanName} потратила ${shoppingCost}. Остаток баланса: ${this.humanCash}$`)
+                }
+            }
+        }
+
+         //4) разрешать персонажам заводить новых персонажей
+         class ChildrenMale extends Male {
+             constructor(name, age) {
+                 super(name, age);
+             }
+
+             toRideBike () {
+                 console.log (`${this.humanName} ride a bike`);
+             }
+         }
+
+         class ChildrenFemale extends Female {
+             constructor(name, age) {
+                 super(name, age);
+             }
+
+             jumpAndRun () {
+                 console.log (`${this.humanName} jump and run!`);
+             }
+         }
+
+
+
+        let oleg = new Male('oleg', '30');
+        let olga = new Female('Olga', 25);
+        let nikolay = new Male('nikolay', 28);
+        let elena = new Female('elene', 22);
+        let koko = new ChildrenMale('koko', 12);
+        let kiki = new ChildrenFemale('kiki', 9);
+        
+         
+
+        console.log(oleg);
+        console.log(olga);
+        console.log(nikolay);
+        console.log(elena);
+        console.log(koko);
+        console.log(kiki);
+
+        oleg.goWork('junior');
+        olga.goWork('middle');
+        nikolay.goWork('senior');
+        elena.goWork('junior');
+
+        oleg.goFishing();
+        nikolay.goFishing();
+        olga.goShopping();
+        elena.goShopping();
+        elena.goShopping();
+        elena.goShopping();
+
+        oleg.getMarried(nikolay);
+        oleg.getMarried(olga);
+
+        koko.toRideBike();
+        kiki.jumpAndRun();
+
+    </script>
+</body>
+
+</html>
