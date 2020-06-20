@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        form {
+            width: 400px
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Выберите гамбургер: </h1>
+    <form action="#" id="uForm">
+        <fieldset>
+            <label>
+                <input type="radio" name="40" value="50"> Маленький гамбургер (50р +40 ккал);
+            </label>
+            <label>
+                <input type="radio" name="40" value="100"> Большой гамбургер (100р +40 ккал);
+            </label>
+        </fieldset>
+        <fieldset>
+            <label>
+                <input type="checkbox" name="20" value="10"> С сыром (+10 рублей, +20 калорий)
+            </label>
+            <label>
+                <input type="checkbox" name="5" value="20"> С салатом (+20 рублей, +5 калорий)
+            </label>
+            <label>
+                <input type="checkbox" name="10" value="15"> С картофелем (+15 рублей, +10 калорий)
+            </label>
+            <label>
+                <input type="checkbox" name="0" value="15" value1="1000"> посыпать приправой (+15 рублей, +0 калорий)
+            </label>
+            <label>
+                <input type="checkbox" name="5" value="20"> полить майонезом (+20 рублей, +5 калорий)
+            </label>
+        </fieldset>
+    </form> <br>
+
+    <button id="okBtn">Рассчитать стоимость заказа</button> <br><br>
+
+    <h2>Итого:</h2>
+    <p id="outP">0</p>
+
+    <script>
+        let btn = document.querySelector('#okBtn');
+        btn.addEventListener('click', calculateOrder);
+
+
+        function calculateOrder() {
+            let totalCost = 0;
+            let totalKkal = 0;
+            let p = document.getElementById('outP');
+            console.log(p);
+            let chooseSpice = [...document.querySelectorAll (`input[name]:checked`)]
+            
+            for(let i = 0; i < chooseSpice.length; i++){
+                totalCost += Number(chooseSpice[i].value);
+                totalKkal += Number(chooseSpice[i].name);
+            }
+            return console.log(p.innerHTML = `${totalCost}$ (всего: ${totalKkal} ккал)`);
+
+            
+
+        }
+    </script>
+</body>
+
+</html>

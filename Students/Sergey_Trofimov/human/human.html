@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+
+    </div>
+
+    <script>
+        class Human {
+            constructor(name, age, sum) {
+                this.humanName = name;
+                this.humanAge = age;
+                this.humanSum = sum;
+                this.humanEarnings = this.goWork();
+            }
+            greet(pers = 'you') {
+                console.log(this.humanName + ` greets ${pers}!`)
+            }
+
+            goWork() {
+                console.log(this.humanName + ' goes to work.');
+                let earnings = this.humanSum * Math.round(Math.random() * 8);
+                console.log(this.humanName + ` earnings ${earnings} $`)
+                return earnings;
+            }
+        }
+
+        class Male extends Human {
+            constructor(name, age, sum, earnings) {
+                super(name, age, sum, earnings)
+                this.fishes = 0;
+                this.earnings = earnings;
+            }
+            goFishing() {
+                console.log(this.humanName + ' goes fishing.');
+                let fishes = Math.round(Math.random() * 10);
+                console.log(this.humanName + ` gets ${fishes} fishes`);
+                this.fishes += fishes;
+            } 
+
+        }
+
+        class Female extends Human {
+            constructor(name, age, earnings) {
+                super(name, age, earnings);
+                this.money = 100;
+                this.earnings = earnings;
+            }
+
+            goShopping() {
+                console.log(this.humanName + ' goes shopping.');
+                let money = Math.round(Math.random() * 1000);
+                console.log(this.humanName + ` spends ${money}$`);
+                this.money -= money;
+            }
+        }
+
+        let oleg = new Male('Oleg', 28, 100);
+        let olga = new Female('Olga', 25, 50);
+        //1) сделать так, чтобы метод goWork приносил человеку доход, 
+        //   определяемый его "особым" ежечасным доходом * на раб время за 1 рабочий "день"
+        //   СДЕЛАЛ, НО Х.З. ПРАВИЛЬНО ИЛИ НЕТ
+        //2) дать возможность персонажам "связываться узами"
+        //3) запрещать делать покупки при отр. балансе
+        //4) разрешать персонажам заводить новых персонажей
+        //*** если сделать хтмл
+
+//oop
+        // let arr = [];
+        // let arr2 = new Array();
+
+        // let str = 'qwe';
+        // let str2 = new String('qwe');
+        // в ДжаваСкрипт все МОЖЕТ БЫТЬ представлено в виде объектов
+        // new Array('1', '2', '3') // ['1', '2', '3']
+
+
+    </script>
+</body>
+</html> 

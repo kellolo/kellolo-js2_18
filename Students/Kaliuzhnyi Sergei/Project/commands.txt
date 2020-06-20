@@ -1,0 +1,14 @@
+0) npm init -y
+//инициализация проекта
+
+1) npm i -D webpack webpack-cli
+//установка вебпака
+2) npm i bootstrap jquery popper.js
+//установка бутстрапа
+3) (package.json)
+    "scripts": {
+        "build": "webpack"
+    },
+4) создать папку src в корне проекта
+5) создать файл index.js в папке src 
+6) npm run build

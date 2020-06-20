@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+
+    </div>
+
+    <script>
+        class Human {
+            constructor(name, age, salary, children) {
+                this.humanName = name;
+                this.humanAge = age;
+                this.salary = 45;
+                this.partner = 0;
+                this.money = 75;
+                this.children = 0;
+
+            }
+            greet(pers = 'you') {
+                console.log(this.humanName + ` greets ${pers}!`)
+            }
+
+            goWork() {
+                console.log(this.humanName + ' goes to work.')
+                let payment = this.salary * 8;
+                this.money += payment;
+                console.log(this.humanName + ` got ${payment}$ `);
+            }
+            
+            // getBaby(){
+            //     if (this.patner != 0) {
+                    
+            //     }
+            // }
+        }
+
+        class Male extends Human {
+            constructor(name, age) {
+                super(name, age, salary, children);
+                this.fishes = 0;
+            }
+            goFishing() {
+                console.log(this.humanName + ' goes fishing.');
+                let fishes = Math.round(Math.random() * 10);
+                console.log(this.humanName + ` gets ${fishes} fishes`);
+                this.fishes += fishes;
+            }
+            getPartner(person) {
+                if (this.partner == 0){
+                    console.log(this.humanName + ` married ` + person.humanName)
+                    this.partner = person.humanName;
+                    person.partner = this.humanName
+                }
+            }
+        }
+
+        class Female extends Human {
+            constructor(name, age) {
+                super(name, age, salary, children);
+                this.money = 100;
+            }
+
+            goShopping() {
+                if (this.money > 0) {
+                    console.log(this.humanName + ' goes shopping.');
+                    let money = Math.round(Math.random() * 1000);
+                    console.log(this.humanName + ` spends ${money}$`);
+                    this.money -= money;
+                    console.log(this.money + ` left ${money}$`)
+                } else {
+                    console.log(` You spent everything. Time to work.`)
+                }
+            }
+        }
+
+        let oleg = new Male('Oleg', 28);
+        let olga = new Female('Olga', 25);
+        //1) сделать так, чтобы метод goWork приносил человеку доход, определяемый его "особым" ежечасным доходом * на раб время за 1 рабочий "день"
+        //2) дать возможность персонажам "связываться узами"
+        //3) запрещать делать покупки при отр. балансе
+        //4) разрешать персонажам заводить новых персонажей
+        //*** если сделать хтмл
+
+//oop
+        // let arr = [];
+        // let arr2 = new Array();
+
+        // let str = 'qwe';
+        // let str2 = new String('qwe');
+        // в ДжаваСкрипт все МОЖЕТ БЫТЬ представлено в виде объектов
+        // new Array('1', '2', '3') // ['1', '2', '3']
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="box" id="app">
+        <div id="form">
+            <h2>Завести ребенка</h2>
+            <form>
+                <fieldset>
+                    <label><input type="text" name="name"> Enter name</label>
+                </fieldset>
+                <fieldset>
+                    <label><input type="radio" name="gen" value="male">male</label>
+                    <label><input type="radio" name="gen" value="female">female</label>
+                </fieldset>
+                <fieldset>
+                    <label><input type="checkbox" name="hobby" value="Watching TV">Watching TV</label>
+                    <label><input type="checkbox" name="hobby" value="Sport">Sport</label>
+                    <label><input type="checkbox" name="hobby" value="Walk">Walk</label>
+                </fieldset>
+                <input type="reset">
+            </form>
+            <button id="button">Create character</button>
+        </div>
+        <div class="act-box">
+            <div class="acts">
+                <div id="act">
+                    <h2>Олег</h2>
+                    <div>
+                        <button id="olegGoWork">Пойти на работу</button>
+                        <p>Денег: <span id="olegMoney">0</span>&#36;</p>
+                    </div>
+                    <div>
+                        <button id="goFishing">Пойти на рыбалку</button>
+                        <p>Рыб: <span id="fishes">0</span></p>
+                    </div>
+                </div>
+                <div id="act">
+                    <h2>Ольга</h2>
+                    <div>
+                        <button id="olgaGoWork">Пойти на работу</button>
+                        <p>Денег: <span id="olgaMoney">0</span>&#36;</p>
+                    </div>
+                    <div>
+                        <button id="goShopping">Пойти в магазин</button>
+                        <p>Ольга потратила: <span id="olgaSpend">0</span>&#36;</p>
+                    </div>
+                </div>
+            </div>
+            <div class="act-box_button"><button id="tieKnot">"Связатся узами"</button></div>
+        </div>
+    </div>
+
+    <script src="app.js">
+        //1) сделать так, чтобы метод goWork приносил человеку доход, определяемый его "особым" ежечасным доходом * на раб время за 1 рабочий "день"
+        //2) дать возможность персонажам "связываться узами"
+        //3) запрещать делать покупки при отр. балансе
+        //4) разрешать персонажам заводить новых персонажей
+        //*** если сделать хтмл
+
+        //oop
+        // let arr = [];
+        // let arr2 = new Array();
+
+        // let str = 'qwe';
+        // let str2 = new String('qwe');
+        // в ДжаваСкрипт все МОЖЕТ БЫТЬ представлено в виде объектов
+        // new Array('1', '2', '3') // ['1', '2', '3']
+    </script>
+</body>
+
+</html>

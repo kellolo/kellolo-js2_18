@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gamburger</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+
+<body>
+    <div class="conteiner center">
+        <div class="main">
+            <div class="main__header">
+                <h2 class="main__header_h2">Выберите гамбургер</h2>
+            </div>
+            <form action="#" id="select">
+                <div class="gamburger">
+                    <div class="gamburger__big">
+                        <h3 class="gamburger__big_h3">Большой</h3>
+                        <p class="gamburger__big_p">Цена стандартного 100 рублей</p>
+                        <p class="gamburger__big_p">Количество колорий 40 кКал</p>
+                        <img src="img/big.jpg" alt="big"><br>
+                        <input type="radio" name="size" id="big" value="big" checked/>
+                        <label for="big">Большой</label>
+                    </div>
+                    <div class="gamburger__small">
+                        <h3 class="gamburger__big_h3">Маленький</h3>
+                        <p class="gamburger__big_p">Цена стандартного 50 рублей</p>
+                        <p class="gamburger__big_p">Количество колорий 20 кКал</p>
+                        <img src="img/small.jpg" alt="small"><br>
+                        <input type="radio" name="size" id="small" value="small"/>
+                        <label for="small">Маленький</label>
+
+                    </div>
+                </div>
+                <div class="ingredients">
+                    <div class="ingredients__header">
+                        <h3 class="gamburger__big_h3">Выберите ингредиенты</h3>
+                    </div>
+                    <label>
+                        <input type="radio" name="ingredients" value="cheese" checked>С сыром +10 рублей
+                    </label><br>
+                    <label>
+                        <input type="radio" name="ingredients" value="salad">С салатом +20 рублей
+                    </label><br>
+                    <label>
+                        <input type="radio" name="ingredients" value="potato">С картошкой +15 рублей
+                    </label>
+                    <div class="addition">
+                        <div class="ingredients__header">
+                            <h3 class="gamburger__big_h3">Дополнительно</h3>
+                        </div>
+                        <div class="addition__input">
+                        <label>
+                            <input  type="checkbox" name="topping" value="mayo" id="mayoTop" >Полить майонезом +20 рублей
+                        </label>
+                        <label>
+                            <input type="checkbox" name="topping" value="spice" id="spiceTop" >Посыпать приправой +15 рублей
+                        </label>
+                    </div>
+                    </div>
+                </div>
+            </form>
+            <button id="complette">готово</button>
+            <div class="yourGamburger">
+                <h3 class="gamburger__big_h3">Ваш гамбургер</h3>
+                <p class="yourGamburger__p">Цена: <span id="burger-cost"></span> руб</p>
+				<p class="yourGamburger__p">Калорийность: <span id="burger-cal"></span> ккал</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

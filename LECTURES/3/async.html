@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //0) Коллбэки
+        //1) Промисы
+        //2) GET Request (запрос на получение данных)
+
+        // let a;
+
+        // function getRequest(cb) {
+        //     setTimeout(() => {
+        //         a = 100500;
+        //         cb();
+        //     }, 5000)
+        // }
+
+        // function callback() {
+        //     console.log('результат = ' + a);
+        // }
+
+        // getRequest(() => {
+        //     console.log('результат = ' + a);
+        //     getRequest(() => {
+        //         console.log('результат = ' + a);
+        //         getRequest(() => {
+        //             console.log('результат = ' + a);
+        //         })
+        //     })
+        // });
+
+
+        // function getRequest(cb) {
+        //     setTimeout(() => {
+        //         a = 100500;
+        //         cb();
+        //     }, 5000)
+        // }
+        //сюда
+
+        //Promises
+
+        // let a;
+
+        // function getRequest() {
+        //     return new Promise((resolve, reject) => {
+        //         //async
+        //         setTimeout(() => {
+        //             // a = 100;
+        //             if (a) {
+        //                 resolve('result = ' + a);
+        //             } else {
+        //                 reject('error #100500 by GB');
+        //             }
+        //         }, 2000)
+        //     })
+        // }
+
+        // getRequest()
+        //     .then(resolved => {
+        //         console.log(resolved)
+        //     })
+        //     .catch(rejected => {
+        //         throw new Error(rejected)
+        //     })
+        //     .finally(() => {
+        //         alert('Промис окончен')
+        //     })
+
+
+        function get(url) {
+            return new Promise((res, rej) => {
+                let xhr = new XMLHttpRequest(); // if(){} else {} проверка на IE (ActiveXObject)
+                xhr.open('GET', url, true);
+                xhr.onreadystatechange = () => {
+                    if (xhr.readyState == 4) { // 4 - зав запроса без ошибки
+                        if(xhr.status == 200) { // 200 - ответ сервера о том, что он все сделал
+                            res(JSON.parse(xhr.responseText));
+                        }
+                        else {
+                            rej('server Error');
+                        }
+                    }
+                };
+                xhr.send(); 
+            })
+        }
+
+        let items;
+        let url = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/catalogData.json'
+
+
+        get(url)
+            .then(data => {
+                items = data;
+            })
+            .catch(err => {
+                throw new Error(err);
+            })
+    </script>
+</body>
+</html>

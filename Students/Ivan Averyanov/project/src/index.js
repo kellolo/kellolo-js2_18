@@ -1,12 +1,12 @@
 
 
-import css form './layout/style/star-rating.css';
-import css form './layout/style/style.css';
-import css form './layout/style/style-breadcrumbs.css';
-import css form './layout/style/style-fetured.css';
-import css form './layout/style/style-offer.css';
-import css form './layout/style/style-offering.css';
-import css form './layout/style/style-secondary.css';
+import './Layout/style/star-rating.css'
+import './Layout/style/style.css'
+import './Layout/style/style-breadcrumbs.css'
+import './Layout/style/style-fetured.css'
+import './Layout/style/style-offer.css'
+import './Layout/style/style-offering.css'
+import './Layout/style/style-secondary.css'
 
 
 

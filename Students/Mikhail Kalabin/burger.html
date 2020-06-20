@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        form {
+            width: 300px
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="#" id="uForm">
+
+        <fieldset>
+            <label>
+                <input type="radio" name="size" value="small" data-price="50" data-cal='200' checked> Маленький бургер
+            </label>
+            <label>
+                <input type="radio" name="size" value="big" data-price="100" data-cal='300'> Большой бургер
+                <fieldset>
+                    <input type="radio" name="type" value="cheese" data-cal='25' disabled> Сыр
+                    <input type="radio" name="type" value="salad" data-cal='3' disabled> Салат
+                    <input type="radio" name="type" value="potato" data-cal='55' disabled> Картофель
+                </fieldset>
+            </label>
+        </fieldset>
+        <fieldset>
+            <label>
+                <input type="checkbox" name="add" value="seasoning" data-price="15" data-cal='5'> Приправа
+            </label>
+            <label>
+                <input type="checkbox" name="add" value="bacon" data-price="25" data-cal='20'> Бекон
+            </label>
+            <label>
+                <input type="checkbox" name="add" value="cheese" data-price="20" data-cal='25'> Сыр
+            </label>
+            <label>
+                <input type="checkbox" name="add" value="maoynese" data-price="10" data-cal='30'> Майонез
+            </label>
+        </fieldset>
+    </form>
+    <button id="okBtn">Done</button>
+
+    <p id='price'></p>
+    <p id='calories'></p>
+
+
+
+    <script>
+        let form = document.querySelector('#uForm')
+        let btn = document.querySelector('#okBtn')
+        let order = {}
+
+        btn.addEventListener('click', addOrder)
+
+        document.querySelector('input[value=big]').addEventListener('click', nonDisable);
+        
+        function nonDisable(){
+            for (let value of document.querySelectorAll('input[name=type]')){
+                value.removeAttribute('disabled');
+            }
+        }
+
+        document.querySelector('input[value=small]').addEventListener('click', disable);
+
+        function disable(){
+            for (let value of document.querySelectorAll('input[name=type]')){
+                value.checked = false;
+                value.setAttribute('disabled', "disabled");
+            }
+        }
+
+        function addOrder() {
+            order = new Order('size', 'type', 'add')
+            document.querySelector('#price').innerText = `Цена: ${order.getPrice()}р`;
+            document.querySelector('#calories').innerText = `Калории: ${order.getTotalCalories()}`;
+        }
+
+        class Order {
+            constructor(size, type, add) {
+                this.size = this._check(size)
+                this.type = this._check(type)
+                this.add = this._getArray(add)
+            }
+
+            _check(attrName) {
+                let obj = document.querySelector(`input[name=${attrName}]:checked`)
+                // if(document.querySelector(`input[value=small]:checked`)){
+                    
+                // }
+                if(!obj){
+                    return;
+                }
+                return obj.value
+            }
+            _getArray(attrName) {
+                let objArr = [...document.querySelectorAll(`input[name=${attrName}]:checked`)]
+                let arr = objArr.map(el => el.value);
+                // let arr = []
+                // objArr.forEach (el => {
+                //     arr.push (el.value)
+                // })
+                return arr
+            }
+
+            getPrice() {
+                let sum = 0;
+                
+                for (let key in this) {
+                    if(!this[key]){continue;}
+                    if (Array.isArray(order[key])) {
+                        let sumOfAdded = this._getSumOfAdded(key)
+                        sum += sumOfAdded;
+                        continue;
+                    }
+                    sum += +document.querySelector(`input[name=${key}]:checked`).getAttribute('data-price');
+                }
+                return sum;
+            }
+
+            _getSumOfAdded(key) {
+                let sum = 0
+                let arrOfChecked = document.querySelectorAll(`input[name=${key}]:checked`);
+                for (let value of arrOfChecked) {
+                    sum += +value.getAttribute('data-price')
+                }
+                return sum;
+            }
+
+
+            getTotalCalories() {
+                let total = 0;
+                for (let key in this) {
+                    if(!this[key]){continue;}
+                    if (Array.isArray(order[key])) {
+                        let totalOfAdded = this._getTotalOfAdded(key)
+                        total += totalOfAdded;
+                        continue;
+                    }
+                    total += +document.querySelector(`input[name=${key}]:checked`).getAttribute('data-cal');
+                }
+                return total;
+            }
+
+            _getTotalOfAdded(key) {
+                let total = 0
+                let arrOfChecked = document.querySelectorAll(`input[name=${key}]:checked`);
+                for (let value of arrOfChecked) {
+                    total += +value.getAttribute('data-cal')
+                }
+                return total;
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

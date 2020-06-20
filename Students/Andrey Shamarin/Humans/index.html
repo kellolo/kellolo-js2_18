@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+
+    </div>
+
+    <script>
+        class Human {
+            constructor(name, age) {
+                this.humanName = name;
+                this.humanAge = age;
+                this.money = 100;
+                this.whantsToMarry = 0;
+                this.married = 0;
+            }
+            greet(pers = 'you') {
+                console.log(this.humanName + ` greets ${pers}`);
+                this.whantsToMarry =
+                1; // если персонаж приветствует другого то хочет на нем жениться (таков здешний мир:))
+            }
+
+            goWork(workingTime) {
+                console.log(this.humanName + ' goes to work for ' + workingTime + ' hours.')
+                let priceOfHour = 100;
+                let money = 0;
+                while (workingTime) {
+                    money += 100;
+                    workingTime--;
+                };
+                this.money += money;
+                console.log(this.humanName + ' earns ' + money + ' $');
+                console.log(this.humanName + ' have ' + this.money + ' $');
+            }
+            makeChild() {
+                if (this.married == 1) {
+                    let maleNames = ['dmitry', 'andrey', 'denis'];
+                    let femaleNames = ['tatyana', 'elena', 'liza'];
+                    let randomSex = Math.round(Math.random() * 2);
+                    if (randomSex == 1) {
+                        let i = Math.round(Math.random() * maleNames.length);
+                        let name = maleNames[i];
+                        // хотелось бы чтоб вместо child здесь писалось имя из массива имен, но как это сделать пока не ясно
+                        let child = new Male(name, 0);
+                        console.log('You have a child ' + child.humanName);
+                        childrens.push(child);
+                    } else {
+                        let i = Math.round(Math.random() * femaleNames.length);
+                        let name = femaleNames[i];
+                        // хотелось бы чтоб вместо child здесь писалось имя из массива имен, но как это сделать пока не ясно
+                        let child = new Female(name, 0);
+                        console.log('You have a child ' + child.humanName);
+                        childrens.push(child);
+                    };
+                } else {
+                    console.log(this.humanName + ' isnt marryed');
+                }
+            }
+        }
+
+        class Male extends Human {
+            constructor(name, age) {
+                super(name, age);
+                this.fishes = 0;
+            }
+            goFishing() {
+                console.log(this.humanName + ' goes fishing.');
+                let fishes = Math.round(Math.random() * 10);
+                console.log(this.humanName + ` gets ${fishes} fishes`);
+                this.fishes += fishes;
+            }
+
+            toMarry() {
+                if (oleg.whantsToMarry == 1 && olga.whantsToMarry == 1) {
+                    olga.married = 1;
+                    oleg.married = 1;
+                    console.log(this.humanName + ' is now married to olga, Greetings!!!');
+                    console.log('Now you can make a child');
+                    console.log('Its some help from devs');
+                    this.money += 5000;
+                    console.log(this.humanName + ' have ' + this.money + ' $');
+                } else {
+                    console.log('She doesnt know who are you')
+                }
+            }
+        }
+
+        class Female extends Human {
+            constructor(name, age) {
+                super(name, age);
+
+            }
+
+            goShopping() {
+                if (this.money < 0) {
+                    console.log(this.humanName + ' needs more money and should goes to work!');
+                    return;
+                } else {
+                    console.log(this.humanName + ' goes shopping.');
+                    let money = Math.round(Math.random() * 1000);
+                    console.log(this.humanName + ` whants to spend ${money}$`);
+                    if (this.money < money) {
+                        console.log(this.humanName + ' needs more money and should goes to work!');
+                        return;
+                    } else
+                        console.log(this.humanName + ` spends ${money}$`);
+                    this.money -= money;
+                };
+            }
+        }
+
+        let oleg = new Male('Oleg', 28);
+        let olga = new Female('Olga', 25);
+        let childrens = [];
+        // DONE 1) сделать так, чтобы метод goWork приносил человеку доход, определяемый его "особым" ежечасным доходом * на раб время за 1 рабочий "день"
+        // DONE 2) дать возможность персонажам "связываться узами"
+        // DONE 3)запрещать делать покупки при отр. балансе
+        // DONE 4) разрешать персонажам заводить новых персонажей
+        //*** если сделать хтмл
+    </script>
+</body>
+
+</html>
