@@ -1,4 +1,4 @@
-import { data } from "jquery";
+
 
 
 class List {
@@ -15,6 +15,7 @@ class List {
                 this.items = !basket ? data : data.contents;
                 this._render();
                 this._handleEvents();
+                console.log(this.constructor.name, this)
             })
     }
 
@@ -32,7 +33,7 @@ class List {
     }
 
     _handleEvents() {
-        return '';
+        return ''
     }
 }
 
@@ -87,7 +88,7 @@ class Basket extends List {
 
         document.querySelector('.btn-basket').addEventListener('click', evt => {
             document.querySelector('basket-block').toggle('invisible');
-            this.remove(evt.target.dataset.id);
+            
         });
     }
 
@@ -150,43 +151,6 @@ export default () => {
     
 }
 
-export default () => {
-    basket.init();
-    catalog.init();
-}
-
-
-<<<<<<< HEAD
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-=======
->>>>>>> b227593e79571ca7bf26929114902e8b1b529819
