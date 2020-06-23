@@ -150,6 +150,13 @@ export default () => {
     
 }
 
+export default () => {
+    basket.init();
+    catalog.init();
+}
+
+
+<<<<<<< HEAD
 
 
 
@@ -181,4 +188,5 @@ export default () => {
 
 
 
-
+=======
+>>>>>>> b227593e79571ca7bf26929114902e8b1b529819
