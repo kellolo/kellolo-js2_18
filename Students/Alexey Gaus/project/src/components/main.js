@@ -108,7 +108,13 @@ class Basket extends List {
 
     remove(itemId) {
         let find = this.items.find(el => el.id_product == item.id);
-        console.log('попытка удалить ' + itemId)
+        console.log('попытка удалить ' + itemId);
+        if (find.quantity == 1) {
+            this.items.splice(this.items.indexOf(find), 1);
+        } else {
+            find.quantity--;
+        }
+        this._render();
 
     }
 
