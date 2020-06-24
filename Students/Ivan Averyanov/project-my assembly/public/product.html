@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Product</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../src/Layout/style/star-rating.css">
+    <link rel="stylesheet" href="../src/Layout/style/style.css">
+    <link rel="stylesheet" href="../src/Layout/style/style_breadcrumbs.css">
+    <link rel="stylesheet" href="../src/Layout/style/style_categories.css">
+    <link rel="stylesheet" href="../src/Layout/style/style_feedback.css">
+    <link rel="stylesheet" href="../src/Layout/style/style_fetured.css">
+    <link rel="stylesheet" href="../src/Layout/style/style_offer.css">
+    <link rel="stylesheet" href="../src/Layout/style/style_offering.css">
+    <link rel="stylesheet" href="../src/Layout/style/style_secondary.css">
+  </head>
+
+  <body>
+    <div class="main-content">
+      <header class="header center">
+        <div class="header__left">
+          <a href="index.html" class="logo">
+            <img
+              class="logo__img"
+              src="../src/Layout/img/promo/logo.png"
+              alt="logo"
+            />
+            <p>BRAN<span>D</span></p>
+          </a>
+          <form action="№" class="header__form selector-for-some-widget">
+            <details class="browse">
+              <summary>Browse</summary>
+              <div class="drop">
+                <div class="drop__col">
+                  <div class="drop__h3">WOMEN</div>
+                  <ul class="drop__ul">
+                    <li class="drop_a"><a href="product.html">Dresses</a></li>
+                    <li class="drop_a"><a href="product.html">Tops</a></li>
+                    <li class="drop_a">
+                      <a href="product.html">Sweaters/Knits</a>
+                    </li>
+                    <li class="drop_a">
+                      <a href="product.html">Jackets/Coats</a>
+                    </li>
+                    <li class="drop_a"><a href="product.html">Blazers</a></li>
+                    <li class="drop_a"><a href="product.html">Denim</a></li>
+                    <li class="drop_a">
+                      <a href="product.html">Leggings/Pants</a>
+                    </li>
+                    <li class="drop_a">
+                      <a href="product.html">Skirts/Shorts</a>
+                    </li>
+                    <li class="drop_a">
+                      <a href="product.html">Accessories</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="drop__col">
+                  <div class="drop__h3">MEN</div>
+                  <ul class="drop__ul">
+                    <li class="drop_a">
+                      <a href="product.html">Tees/Tank tops</a>
+                    </li>
+                    <li class="drop_a">
+                      <a href="product.html">Shirts/Polos</a>
+                    </li>
+                    <li class="drop_a"><a href="product.html">Sweaters</a></li>
+                    <li class="drop_a">
+                      <a href="product.html">Sweatshirts/Hoodies</a>
+                    </li>
+                    <li class="drop_a"><a href="product.html">Blazers</a></li>
+                    <li class="drop_a">
+                      <a href="product.html">Jackets/vests</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </details>
+            <input type="text" placeholder="Search for Item..." autofocus />
+            <button>
+              <img src="../src/Layout/img/promo/search.png" alt="search" />
+            </button>
+          </form>
+        </div>
+        <div class="header__right">
+          <input
+            class="header__cart"
+            type="image"
+            name="cart"
+            src="../src/Layout/img/promo/cart.png"
+            alt="cart"
+          />
+          <div class="cart-list">
+            <div class="cart-list__total">
+              <span class="cart-list__total_span">TOTAL</span>
+              <span class="cart-list__total_span"
+                >$ <span class="cart-list__total-span">0</span></span
+              >
+            </div>
+            <input
+              type="button"
+              class="cart-list__button cart-list__button-one cart-list__button_action"
+              value="Checkout"
+            />
+            <input type="button" class="cart-list__button" value="Go to cart" />
+          </div>
+          <a class="header__button button__effect" href="shoppingCart.html"
+            ><span>My account</span
+            ><img src="../src/Layout/img/promo/arrow_w.png" alt="arrow"
+          /></a>
+        </div>
+      </header>
+      <section class="center">
+        <div class="sidebar-plus-content">
+          <div class="page-content">
+            <div class="Fetured_Items center">
+              <div class="items__catalog">
+                <div href="shoppingCart.html" class="catalog__product">
+                  <div class="catalog__mango">
+                    <img
+                      class="mango"
+                      src="../src/Layout/img/secondary/product-1.png"
+                      alt="mango"
+                    />
+                    <button
+                      type="button"
+                      class="AddToCart"
+                      data-id="1"
+                      data-price="52"
+                      data-name="Mango People-1"
+                      data-src="../src/Layout/img/secondary/product-1.png"
+                    >
+                      <img
+                        src="../src/Layout/img/FeturedItems/AddToCart.png"
+                        alt="AddToCart"
+                      /><span>Add to Cart</span>
+                    </button>
+                  </div>
+                  <div class="product__name">Mango People T-shirt</div>
+                  <div class="product__price">$52.00</div>
+                </div>
+                <div href="shoppingCart.html" class="catalog__product">
+                  <div class="catalog__mango">
+                    <img
+                      class="mango"
+                      src="../src/Layout/img/secondary/product-2.png"
+                      alt="mango"
+                    />
+                    <button
+                      type="button"
+                      class="AddToCart"
+                      data-id="2"
+                      data-price="60"
+                      data-name="Mango People-2"
+                      data-src="../src/Layout/img/secondary/product-2.png"
+                    >
+                      <img
+                        src="../src/Layout/img/FeturedItems/AddToCart.png"
+                        alt="AddToCart"
+                      /><span>Add to Cart</span>
+                    </button>
+                  </div>
+                  <div class="product__name">Mango People T-shirt</div>
+                  <div class="product__price">$60.00</div>
+                </div>
+                <div href="shoppingCart.html" class="catalog__product">
+                  <div class="catalog__mango">
+                    <img
+                      class="mango"
+                      src="../src/Layout/img/secondary/product-3.png"
+                      alt="mango"
+                    />
+                    <button
+                      type="button"
+                      class="AddToCart"
+                      data-id="3"
+                      data-price="40"
+                      data-name="Mango People-3"
+                      data-src="../src/Layout/img/secondary/product-3.png"
+                    >
+                      <img
+                        src="../src/Layout/img/FeturedItems/AddToCart.png"
+                        alt="AddToCart"
+                      /><span>Add to Cart</span>
+                    </button>
+                  </div>
+                  <div class="product__name">Mango People T-shirt</div>
+                  <div class="product__price">$40.00</div>
+                </div>
+                <div href="shoppingCart.html" class="catalog__product">
+                  <div class="catalog__mango">
+                    <img
+                      class="mango"
+                      src="../src/Layout/img/secondary/product-4.png"
+                      alt="mango"
+                    />
+                    <div
+                      class="AddToCart"
+                      data-id="4"
+                      data-price="25"
+                      data-name="Mango People-4"
+                      data-src="../src/Layout/img/secondary/product-4.png"
+                    >
+                      <img
+                        src="../src/Layout/img/FeturedItems/AddToCart.png"
+                        alt="AddToCart"
+                      /><span>Add to Cart</span>
+                    </div>
+                  </div>
+                  <div class="product__name">Mango People T-shirt</div>
+                  <div class="product__price">$25.00</div>
+                </div>
+                <div href="shoppingCart.html" class="catalog__product">
+                  <div class="catalog__mango">
+                    <img
+                      class="mango"
+                      src="../src/Layout/img/secondary/product-5.png"
+                      alt="mango"
+                    />
+                    <div
+                      class="AddToCart"
+                      data-id="5"
+                      data-price="62"
+                      data-name="Mango People-5"
+                      data-src="../src/Layout/secondary/product-5.png"
+                    >
+                      <img
+                        src="../src/Layout/img/FeturedItems/AddToCart.png"
+                        alt="AddToCart"
+                      /><span>Add to Cart</span>
+                    </div>
+                  </div>
+                  <div class="product__name">Mango People T-shirt</div>
+                  <div class="product__price">$62.00</div>
+                </div>
+                <div href="shoppingCart.html" class="catalog__product">
+                  <div class="catalog__mango">
+                    <img
+                      class="mango"
+                      src="../src/Layout/img/secondary/product-6.png"
+                      alt="mango"
+                    />
+                    <div
+                      class="AddToCart"
+                      data-id="6"
+                      data-price="32"
+                      data-name="Mango People-6"
+                      data-src="../src/Layout/img/secondary/product-6.png"
+                    >
+                      <img
+                        src="../src/Layout/FeturedItems/AddToCart.png"
+                        alt="AddToCart"
+                      /><span>Add to Cart</span>
+                    </div>
+                  </div>
+                  <div class="product__name">Mango People T-shirt</div>
+                  <div class="product__price">$32.00</div>
+                </div>
+              </div>
+              <a href="checkout.html" class="items__button button__effect"
+                ><span>Browse All Product</span
+                ><img src="../src/Layout/img/FeturedItems/arrow_3.png" alt="arrow"
+              /></a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+ 
+    <script src="../dist/script/main-bundle.js"></script>
+   
+  </body>
+</html>

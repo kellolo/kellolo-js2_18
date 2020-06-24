@@ -1,18 +1,5 @@
 'use strict';
 
-let cardButton = document.querySelector('.cart-list__button-one');
-//переход на страницу корзины
-cardButton.addEventListener("click", function (event){
-	document.location.href = "shoppingCart.html";
-}); 
-
-let shopCardButton1 = document.querySelector('.header__cart');
-//переход на страницу корзины
-shopCardButton1.addEventListener("click", function (event){
-	document.location.href = "shoppingCart.html";
-}); 
-
-
 /**
  * Функция создает  корзину.
  */
@@ -25,12 +12,11 @@ shopCardButton1.addEventListener("click", function (event){
 			let price = event.currentTarget.dataset.price;
 			let name = event.currentTarget.dataset.name;
 			let src = event.currentTarget.dataset.src;
-			//let basket = new Basket({ id: id, price: price, name: name, src: src });
-			
+			return productI = {id: id, price: price, name: name, src: src};
 		})
 	});
 
-//basket();
+
 
 class Basket {
 	constructor(product) {
@@ -53,8 +39,8 @@ class Basket {
 		} else {
 			 this.products[product.id].count++;
 		}
-  }
-  _renderProductInBasket(product) {
+	}
+  	_renderProductInBasket(product) {
 	let productExist = document.querySelector(`.product-count[data-id="${product.id}"]`);
 	if (productExist) {
 		 productExist.textContent++;
@@ -123,6 +109,10 @@ class Basket {
 			this.products[id].count--;
 		}
 	}	 
+};
+
+export default ()=>{
+	let basket = new Basket(productI);
 };
 
 /* let basket = {
@@ -223,6 +213,3 @@ class Basket {
  	 
 	};   */
 
-export default ()=>{
-	let basket = new Basket({ id: id, price: price, name: name, src: src });
-};
