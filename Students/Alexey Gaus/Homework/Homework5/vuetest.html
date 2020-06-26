@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            width: 40%;
+            margin: 0 auto
+        }
+
+        .post {
+            border-radius: 5px;
+            border: 2px solid grey;
+            padding: 15px;
+            margin-bottom: 10px
+        }
+
+        .post-footer {
+            text-align: right
+        }
+
+        .font-it {
+            font-style: italic
+        }
+
+        .red {
+            color: red
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="showComments = !showComments"> {{ btnText }} </button>
+        <!--p> {{ testComp }} </p>
+        <input type="text" v-model="test"-->
+        <div class="container" v-show="showComments">
+            <div class="post" v-for="item of items">
+                <div class="user">
+                    <strong> {{ item.name }} </strong>
+                    <button @click="sayHi(item.name)">SayHi</button>
+                </div>
+                <div class="post-body">
+                    {{ item.body }}
+                </div>
+                <div class="post-footer">
+                    <a href="#"> {{ item.email }} </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                //внутренние свойства компонента
+                // test: ''
+                showComments: true,
+                items: []
+            },
+            methods: {
+                //методы компонента
+                sayHi(name) {
+                    alert(`${name} greets you`);
+                }
+            },
+            computed: {
+                //вычисляемые свойства
+                // testComp() {
+                //     return this.test ? this.test : 'текст - Рыба';
+                // }
+                btnText() {
+                    return this.showComments ? '-' : '+'
+                }
+            },
+            //хуки (внутренние события компонента)
+            mounted() {
+                //_init()
+                fetch('https://jsonplaceholder.typicode.com/comments')
+                    .then(d => d.json())
+                    .then(comments => { this.items = comments })
+                    .finally(() => { console.log(this.items) })
+            }
+        });
+    </script>
+
+</body>
+
+</html>
