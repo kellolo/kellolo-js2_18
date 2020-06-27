@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+	<style>
+
+		.form-fialds{
+			display: flex;
+			flex-direction: column;
+    		align-items: self-end;
+		}
+
+		.input-fields{
+			padding: 5px 10px;
+			margin: 10px 5px;
+		}
+
+		.btn{
+			margin: 5px;
+		}
+
+	</style>
+
+</head>
+<body>
+	  
+	<form class="form-fialds" action="">
+		<input  class="input-fields input-fields-text" placeholder="В ведите Ф.И.О. "  type="text" autofocus tabindex="1" >
+		<input id="phone" class="input-fields input-fields-tel" placeholder="+7(000)000-0000" type="tel"  tabindex="3" >
+		<input class="input-fields input-fields-em" placeholder="В ведите email" type="email" tabindex="2" >
+		<input class="input-fields input-fields-pass" placeholder="В ведите пороль" type="password" tabindex="4" >
+		<textarea class="input-fields" name="textarea" id="textarea" cols="30" rows="10" placeholder="В ведите текст..." ></textarea>
+
+		<button class="btn"  >Потверждение</button>
+	</form>
+
+	<script>
+
+		let btn = document.querySelector('.btn');
+		let form = document.querySelector('form');
+		let input = document.querySelectorAll('.input-fields');
+		console.log(btn,form,input);
+		let reagexText = /[A-Za-z]/;
+		let reagexTel = /^(\+[7]|[8])[\(\s\-]*\d{3}[\)\s\-]*\d{3}[\s\-]*\d{4}/;
+		let reagexEmail;
+		let reagexPass;
+
+		
+			btn.addEventListener('click', input =>{
+					input.forEach((event) =>{
+						console.log(event);
+					});
+			});
+		
+/* 		function testInfo(phoneInput){
+			var OK = reagexTel.exec(phoneInput.value);  
+        if (!OK)  
+          window.alert(RegExp.input + " НУжно ввестиномер в формате +7(000)000-0000 ");  
+        else
+          window.alert("Thanks, your phone number is " + OK[0]);  
+		} */
+
+
+	</script>
+
+</body>
+</html>

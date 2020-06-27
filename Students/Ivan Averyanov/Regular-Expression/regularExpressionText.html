@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+	<style>
+		
+		.paragraphRegex{
+			margin: auto;
+			margin-top: 10%;
+			width: 50vw;
+			height: 30vh;
+			
+		}
+
+
+
+	</style>
+</head>
+<body>
+	
+	<p class="paragraphRegex">
+		One: 'Hi Mary.' Two: 'Oh, hi.' One: 'How are you doing?' Two: 'I'm doing alright. How about you?' One: 'Not too bad. The weather is great isn't it?' Two: 'Yes. It's absolutely beautiful today.' One: 'I wish it was like this more frequently.' Two: 'Me too.' One: 'So where are you going now?' Two: 'I'm going to meet a friend of mine at the department store' One: 'Going to do a little shopping?' Two: 'Yeah, I have to buy some presents for my parents.' One: 'What's the occasion?' Two: 'It's their anniversary.' One: 'That's great. Well, you better get going. You don't want to be late.' Two: 'I'll see you next time.' One: 'Sure.' Bye.'	
+	</p>
+	<button class="btn">Нажми</button>
+
+	<script>		
+
+		document.querySelector('.btn').addEventListener('click', () => {
+			let par = document.querySelector('.paragraphRegex').textContent;
+			if(/\s'|'\s/igm.test(par)){
+				let reagex = /\s'|'\s/igm;
+				let parRegRep = par.replace(reagex," \" ");
+				document.querySelector('.paragraphRegex').innerHTML = parRegRep;
+			} else {
+				reagex = /\s"|"\s/igm;
+				parRegRep = par.replace(reagex," \' ");
+				document.querySelector('.paragraphRegex').innerHTML = parRegRep;
+			};
+		});
+
+
+		
+
+	</script>
+
+</body>
+</html>
