@@ -10,11 +10,11 @@
                 </button>
             </form>
             <button class="btn-basket" @click="showBasket = !showBasket">Корзина</button>
-            <basket ref="bskt" />
+            <basket v-show="showBasket" ref="basket" />
         </div>
     </header>
     <main>
-        <catalog />
+        <catalog @add="addItem"/>
     </main> 
   </div>
 </template>
@@ -29,7 +29,6 @@ export default {
     components: {
         'catalog': Catalog,
         'basket': Basket,
-        //'item': Item,
         'search': Search
     },
 
@@ -40,12 +39,13 @@ export default {
     },
     
     methods: {
+        addItem(item) {
+            this.$refs.basket.add(item);
+        },
+
         get(url) {
             return fetch(url).then(data => data.json());
-        },
-        // add() {
-        //     console.log('added');
-        // }
+        }
     },
 
     mounted() {

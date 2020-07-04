@@ -2,10 +2,10 @@
     <div class="basket-block">
         <div class="basket-items">
             <item 
-            itemType="basket"
-            v-for="item of items" 
-            :item="item" 
-            :key="item.id_product"
+            v-for="item of items"
+            itemType="basket" 
+            :item="item"
+            :key="item.id_product"  
             />            
         </div>
     </div>
@@ -22,7 +22,7 @@ export default {
     data() {
         return {
             items: [],
-            url: 'https://raw.githubusercontent.com/gavrilovem/catalogData/master/getBasket.json'
+            url: '/api/basket',
         }
     },
 
@@ -34,36 +34,29 @@ export default {
 
     methods: {
         add(item) {
-            let find = this.items.find(el => el.id_product == item.id);
-            if (find) {
-                find.quantity++;
-                //this._render();
+            let find = this.items.find(el => el.id_product == item.id_product);
+            if (!find) {
+                console.log('Добавляем новый продукт ' + item.product_name)
+                this.items.push(Object.assign({}, item, {quantity: 1}));
             } else {
-                let itemNew = {
-                    id_product: item.id,
-                    product_name: item.name,
-                    price: +item.price,
-                    quantity: 1
-                };
-                this.items.push(itemNew);
-                //this._render();
+                console.log('Увеличиваем количество продукта ' + item.product_name)
+                find.quantity++;
             }
         },
 
-        remove(itemId) {
-            let find = this.items.find(el => el.id_product == itemId);
-            console.log(find)
-
-            if (find.quantity == 1) {
-                this.items.splice(this.items.indexOf(find), 1);
-            } else {
+        remove(item) {
+            let find = this.items.find(el => el.id_product == item.id_product);
+            if (find.quantity > 1) {
                 find.quantity--;
-            }
-        //     this._render();
+            } else {
+                this.items.splice(this.items.indexOf(find), 1)
+                
+            } 
         }
     }
-}
+}    
 </script>
 
 <style>
+
 </style>

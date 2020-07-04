@@ -18,7 +18,7 @@ export default {
     data() {
         return {
             items: [],
-            url: 'https://raw.githubusercontent.com/gavrilovem/catalogData/master/catalogData.json'
+            url: '/api/catalog',
         }
     },
     
