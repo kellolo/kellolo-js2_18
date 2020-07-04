@@ -1,5 +1,48 @@
+
 <template>
-    <div :class="computedClass">
+    <div>
+        <template class="product-box__list" v-if="itemType == 'catalog'">
+            <div class="product">
+                <a href="#" class="product__img"><img src="img/product/man/man_1.png" alt="img"></a>
+                <div class="product__content">
+                    <a href="#" class="product__name">{{item.product_name}}</a>
+                    <p class="product__price">${{item.price}}<span class="product__star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </span>
+                    </p>
+                </div>
+                <a class="product__add" href="#" @click="add(item)">Add to Cart</a>
+            </div>
+        </template>
+        <template v-else-if="itemType == 'basket'">
+                        <div class="drop-menu__box cart-drop__box">
+                            <a href="#"><img src="img/cart-product-1.png" alt="img" class="cart-drop__img"></a>
+                            <div class="cart-drop__box__content">
+                                <span>Rebox Zane</span>
+                                <span>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </span>
+                                <span>1 x $250</span>
+                            </div>
+                            <div class="cross">
+                                <a href="#" @click="$parent.remove(item)"><i class="fas fa-times-circle"></i></a>
+                            </div>
+                        </div>
+                        <div class="drop-menu__box cart-drop__box total">
+                            <span>total</span>
+                            <span>$500</span>
+                        </div>
+        </template>
+    </div>
+</template>
+
+<!-- <div :class="computedClass">
     <img :src="computedSize" alt="item.product_name">
         <template v-if="itemType == 'catalog'">
                 <div class="desc">
@@ -23,8 +66,8 @@
                     <button class="del-btn" name="remove" @click="$parent.remove(item)">&times;</button>
                 </div>
         </template>
-    </div>  
-</template>
+    </div>   -->
+
 
 <script>
 export default {

@@ -1,5 +1,5 @@
 <template>
-    <div class="catalog-items">
+    <div class="product-box__list">
         <item 
             itemType="catalog" 
             v-for="item of items" 

@@ -1,35 +1,63 @@
 [
     {
         "id_product": 1,
-        "product_name": "HTML5 & CSS3",
+        "product_name": "Mango People T-shirt",
         "price": 100,
-        "img": "http://placehold.it/200x150",
+        "img": "https://raw.githubusercontent.com/anton-maslinsky/kellolo-js2_18/master/Students/Anton%20Maslinsky/project/img/category__1.jpg",
         "imgS": "http://placehold.it/100x80"
     },
     {
         "id_product": 2,
-        "product_name": "JavaScript base",
+        "product_name": "Mango People T-shirt",
         "price": 120,
-        "img": "http://placehold.it/200x150",
+        "img": "https://raw.githubusercontent.com/anton-maslinsky/kellolo-js2_18/master/Students/Anton%20Maslinsky/project/img/category__1.jpg",
         "imgS": "http://placehold.it/100x80"
     },
     {
         "id_product": 3,
-        "product_name": "JavaScript advanced",
+        "product_name": "Mango People T-shirt",
         "price": 130,
         "img": "http://placehold.it/200x150",
         "imgS": "http://placehold.it/100x80"
     },
     {
         "id_product": 4,
-        "product_name": "PHP",
+        "product_name": "Mango People T-shirt",
         "price": 50,
         "img": "http://placehold.it/200x150",
         "imgS": "http://placehold.it/100x80"
     },
     {
         "id_product": 5,
-        "product_name": "React",
+        "product_name": "Mango People T-shirt",
+        "price": 150,
+        "img": "http://placehold.it/200x150",
+        "imgS": "http://placehold.it/100x80"
+    },
+    {
+        "id_product": 6,
+        "product_name": "Mango People T-shirt",
+        "price": 120,
+        "img": "http://placehold.it/200x150",
+        "imgS": "http://placehold.it/100x80"
+    },
+    {
+        "id_product": 7,
+        "product_name": "Mango People T-shirt",
+        "price": 130,
+        "img": "http://placehold.it/200x150",
+        "imgS": "http://placehold.it/100x80"
+    },
+    {
+        "id_product": 8,
+        "product_name": "Mango People T-shirt",
+        "price": 50,
+        "img": "http://placehold.it/200x150",
+        "imgS": "http://placehold.it/100x80"
+    },
+    {
+        "id_product": 9,
+        "product_name": "Mango People T-shirt",
         "price": 150,
         "img": "http://placehold.it/200x150",
         "imgS": "http://placehold.it/100x80"

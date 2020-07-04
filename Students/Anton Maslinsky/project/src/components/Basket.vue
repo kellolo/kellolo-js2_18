@@ -1,6 +1,5 @@
 <template>
-    <div class="basket-block">
-        <div class="basket-items">
+        <div class="drop-menu header-drop cart-drop">
             <item 
             v-for="item of items"
             itemType="basket" 
@@ -8,7 +7,6 @@
             :key="item.id_product"  
             />            
         </div>
-    </div>
 </template>
 
 <script>
