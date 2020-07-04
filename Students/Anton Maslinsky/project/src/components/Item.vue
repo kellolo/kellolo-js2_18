@@ -28,16 +28,14 @@
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star-half-alt"></i>
                                 </span>
-                                <span>1 x $250</span>
+                                <span>{{item.quantity}} x ${{item.price * item.quantity}}</span>
                             </div>
                             <div class="cross">
                                 <a href="#" @click="$parent.remove(item)"><i class="fas fa-times-circle"></i></a>
                             </div>
                         </div>
-                        <div class="drop-menu__box cart-drop__box total">
-                            <span>total</span>
-                            <span>$500</span>
-                        </div>
+                        
+
         </template>
     </div>
 </template>
