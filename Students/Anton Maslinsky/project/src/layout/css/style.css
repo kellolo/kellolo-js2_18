@@ -483,6 +483,9 @@ h1, h2, h3, h4, h5, h6 {
     -webkit-transition: all ease 0.4s;
     transition: all ease 0.4s;
   }
+  .cart-drop__img {
+    height: 96px;
+  }
   
   .header .cart-drop__img:hover {
     -webkit-box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.16);

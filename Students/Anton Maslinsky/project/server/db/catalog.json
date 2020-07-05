@@ -3,63 +3,63 @@
         "id_product": 1,
         "product_name": "Mango People T-shirt",
         "price": 100,
-        "img": "https://raw.githubusercontent.com/anton-maslinsky/kellolo-js2_18/master/Students/Anton%20Maslinsky/project/img/category__1.jpg",
+        "img": "https://raw.githubusercontent.com/anton-maslinsky/test/master/img/product/man/man_1.png",
         "imgS": "http://placehold.it/100x80"
     },
     {
         "id_product": 2,
         "product_name": "Mango People T-shirt",
         "price": 120,
-        "img": "https://raw.githubusercontent.com/anton-maslinsky/kellolo-js2_18/master/Students/Anton%20Maslinsky/project/img/category__1.jpg",
+        "img": "https://raw.githubusercontent.com/anton-maslinsky/test/master/img/product/man/man_2.png",
         "imgS": "http://placehold.it/100x80"
     },
     {
         "id_product": 3,
         "product_name": "Mango People T-shirt",
         "price": 130,
-        "img": "http://placehold.it/200x150",
+        "img": "https://raw.githubusercontent.com/anton-maslinsky/test/master/img/product/man/man_3.png",
         "imgS": "http://placehold.it/100x80"
     },
     {
         "id_product": 4,
         "product_name": "Mango People T-shirt",
         "price": 50,
-        "img": "http://placehold.it/200x150",
+        "img": "https://raw.githubusercontent.com/anton-maslinsky/test/master/img/product/man/man_4.png",
         "imgS": "http://placehold.it/100x80"
     },
     {
         "id_product": 5,
         "product_name": "Mango People T-shirt",
         "price": 150,
-        "img": "http://placehold.it/200x150",
+        "img": "https://raw.githubusercontent.com/anton-maslinsky/test/master/img/product/man/man_5.png",
         "imgS": "http://placehold.it/100x80"
     },
     {
         "id_product": 6,
         "product_name": "Mango People T-shirt",
         "price": 120,
-        "img": "http://placehold.it/200x150",
+        "img": "https://raw.githubusercontent.com/anton-maslinsky/test/master/img/product/man/man_6.png",
         "imgS": "http://placehold.it/100x80"
     },
     {
         "id_product": 7,
         "product_name": "Mango People T-shirt",
         "price": 130,
-        "img": "http://placehold.it/200x150",
+        "img": "https://raw.githubusercontent.com/anton-maslinsky/test/master/img/product/man/man_7.png",
         "imgS": "http://placehold.it/100x80"
     },
     {
         "id_product": 8,
         "product_name": "Mango People T-shirt",
         "price": 50,
-        "img": "http://placehold.it/200x150",
+        "img": "https://raw.githubusercontent.com/anton-maslinsky/test/master/img/product/man/man_8.png",
         "imgS": "http://placehold.it/100x80"
     },
     {
         "id_product": 9,
         "product_name": "Mango People T-shirt",
         "price": 150,
-        "img": "http://placehold.it/200x150",
+        "img": "https://raw.githubusercontent.com/anton-maslinsky/test/master/img/product/man/man_9.png",
         "imgS": "http://placehold.it/100x80"
     }
 ]

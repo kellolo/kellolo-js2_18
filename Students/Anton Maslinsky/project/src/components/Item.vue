@@ -3,7 +3,7 @@
     <div>
         <template class="product-box__list" v-if="itemType == 'catalog'">
             <div class="product">
-                <a href="#" class="product__img"><img src="img/product/man/man_1.png" alt="img"></a>
+                <a href="#" class="product__img"><img :src="item.img" :alt="item.product_name"></a>
                 <div class="product__content">
                     <a href="#" class="product__name">{{item.product_name}}</a>
                     <p class="product__price">${{item.price}}<span class="product__star">
@@ -18,9 +18,9 @@
         </template>
         <template v-else-if="itemType == 'basket'">
                         <div class="drop-menu__box cart-drop__box">
-                            <a href="#"><img src="img/cart-product-1.png" alt="img" class="cart-drop__img"></a>
+                            <a href="#"><img :src="item.img" :alt="item.product_name" class="cart-drop__img"></a>
                             <div class="cart-drop__box__content">
-                                <span>Rebox Zane</span>
+                                <span>{{item.product_name}}</span>
                                 <span>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>

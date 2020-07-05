@@ -677,6 +677,29 @@ export default {
 
         get(url) {
             return fetch(url).then(data => data.json());
+        },
+
+        post(url, obj) {
+            return fetch(url, {
+                method: 'POST',
+                headers: { "Content-type": "application/json" },
+                body: JSON.stringify(obj)
+            }).then(data => data.json());
+        },
+
+        put(url, obj) {
+            return fetch(url, {
+                method: 'PUT',
+                headers: { "Content-type": "application/json" },
+                body: JSON.stringify(obj)
+            }).then(data => data.json());
+        },
+
+        delete(url) {
+            return fetch(url, {
+                method: 'DELETE',
+                headers: { "Content-type": "application/json" },
+            }).then(data => data.json());
         }
     },
 
