@@ -6,9 +6,9 @@
             v-for="item of items"
             :item="item"
             :key="item.id_product"
+            @add-item="addItem"
         />
     </div>
-    
 </template>
 
 <script>
@@ -17,13 +17,19 @@ export default {
     components: { item },
     data() {
         return {
-            url: 'https://raw.githubusercontent.com/gavrilovem/catalogData/master/catalogData.json',
+            url: '/api/catalog',
             items: []
         }
     },
     mounted() {
         this.$parent.get(this.url)
             .then( d => this.items = d )
+    },
+    methods: {
+        addItem(item) {
+            console.log(item)
+            this.$emit('add', item)
+        }
     }
 }
 </script>

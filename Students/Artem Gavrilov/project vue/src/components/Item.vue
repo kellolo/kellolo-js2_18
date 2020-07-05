@@ -34,10 +34,10 @@ export default {
     },
     methods: {
         add(item) {
-            this.$parent.$parent.$refs.basket.add(item)
+            this.$emit('add-item', item)
         },
         remove(item) {
-            this.$parent.$parent.$refs.basket.remove(item)
+            this.$parent.remove(item)
         }
     },
     computed: {
