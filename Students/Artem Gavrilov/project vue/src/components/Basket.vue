@@ -18,7 +18,7 @@ export default {
     components: { item },
     data() {
         return {
-            url: 'https://raw.githubusercontent.com/gavrilovem/catalogData/master/getBasket.json',
+            url: 'api/basket',
             items: []
         }
     },
