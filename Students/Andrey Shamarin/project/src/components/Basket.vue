@@ -18,8 +18,9 @@
 		components: {item},
 		data() {
 			return {
-				items: [],
-				url: 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/getBasket.json'
+                items: [],
+                url: '/api/basket', 
+				// url: 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/getBasket.json'
 			}
 		},
 		methods: {
@@ -28,13 +29,7 @@
                 if (find) {
                     find.quantity++;
                 } else {
-                    let itemNew = {
-                        id_product: item.id_product,
-                        product_name: item.product_name,
-                        price: +item.price,
-                        quantity: 1
-                    }
-                    this.items.push(itemNew);
+                    this.items.push(Object.assign({}, item, {quantity: 1}));
                 }
 			},
 			remove(item) {

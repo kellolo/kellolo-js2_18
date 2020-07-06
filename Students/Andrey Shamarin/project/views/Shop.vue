@@ -14,7 +14,7 @@
             </div>
         </header>
         <main>
-			<catalog />
+			<catalog @add="addItem"/>
         </main>
     </div>
 </template>
@@ -35,17 +35,14 @@ export default {
 			showBasket: false
 		}
 	},
-	props: {
-		// пробрасывааемые внутри данные, которые не изменяются внутри компонента
-	},
 	methods: {
 		_get(url) {
-            return fetch(url).then(d => d.json());
+			return fetch(url).then(d => d.json());
 		},
+		addItem(item) {
+			this.$refs.basketComp.add(item);
+		}
 	},
-	mounted() {
-		// this.$refs.basketComp // обращение к дочернему компоненту Basket
-	}
 }
 </script>
 
