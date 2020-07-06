@@ -1,0 +1,62 @@
+[
+    {
+      "id_product": 1,
+      "product_name": "Процессор AMD Ryzen 5 3600 OEM",
+      "price": 10799
+    },
+    {
+      "id_product": 2,
+      "product_name": "Wi-Fi адаптер ASUS USB-N10 Nano",
+      "price": 350
+    },
+    {
+      "id_product": 3,
+      "product_name": "Электрочайник LUMME LU-141 синий",
+      "price": 550
+    },
+    {
+      "id_product": 4,
+      "product_name": "Клавиатура HP 600 RUSS",
+      "price": 1699
+    },
+    {
+      "id_product": 5,
+      "product_name": "Видеорегистратор DEXP RX-Nano",
+      "price": 630
+    },
+    {
+      "id_product": 6,
+      "product_name": "Наушники TWS Samsung Galaxy Buds",
+      "price": 6899
+    },
+    {
+      "id_product": 7,
+      "product_name": "HDMI переключатель ATEN VS381-AT",
+      "price": 970
+    },
+    {
+      "id_product": 8,
+      "product_name": "Смартфон Xiaomi Mi Note 10 128 ГБ",
+      "price": 25299
+    },
+    {
+      "id_product": 9,
+      "product_name": "Wi-Fi роутер ASUS RT-AC52U B1",
+      "price": 2050
+    },
+    {
+      "id_product": 10,
+      "product_name": "Материнская плата MSI MPG X570 GAMING EDGE WIFI",
+      "price": 9999
+    },
+    {
+      "id_product": 11,
+      "product_name": "ИБП DEXP CEE-E 1500VA",
+      "price": 3050
+    },
+    {
+      "id_product": 12,
+      "product_name": "Графический планшет XP-PEN Star 06C",
+      "price": 4999
+    }
+  ]

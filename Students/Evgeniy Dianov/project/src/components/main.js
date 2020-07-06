@@ -1,9 +1,9 @@
-    //https://raw.githubusercontent.com/gavrilovem/catalogData/master/catalogData.json
+//https://raw.githubusercontent.com/gavrilovem/catalogData/master/catalogData.json
 //https://raw.githubusercontent.com/gavrilovem/catalogData/master/getBasket.json
 
 class List {
     constructor(url, container, basket) {
-        this.url = 'https://raw.githubusercontent.com/xdianovx/shop-json/master/res/' + url;
+        this.url = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses' + url;
         this.container = container;
         this.items = [];
         this._init(basket);
@@ -17,11 +17,8 @@ class List {
                 //catalog => [...], basket => {... contents: [...]}
                 this._render();
                 this._handleEvents();
-            })
-
-
-
-
+                console.log(this.constructor.name, this)
+        })
     }
 
     _get(url) {
@@ -30,13 +27,13 @@ class List {
 
     _render() {
         let htmlStr = '';
-        this.items.forEach(item => {
+        this.items.forEach (item => {
             htmlStr += new connect[this.constructor.name](item).render();
         })
-        document.querySelector(this.container).innerHTML = htmlStr;
+        document.querySelector(this.container).innerHTML = htmlStr;      
     }
 
-    _handleEvents() {
+    _handleEvents() { 
         return ''
     }
 }
@@ -46,25 +43,19 @@ class Item {
         this.item = item;
     }
 
-
-
-
     render() {
-
         return `<div class="catalog-item">
                     <img src="http://placehold.it/300x200" alt="${this.item.product_name}">
                     <div class="desc">
                         <h3>${this.item.product_name}</h3>
-                        <div class="catalog-item__info">
-                        <p>${this.item.price} руб.</p>
-                            <button 
-                                class="buy-btn" 
-                                name="buy"
-                                data-name="${this.item.product_name}"
-                                data-price="${this.item.price}"
-                                data-id="${this.item.id_product}"
-                            >Buy</button>
-                        </div>
+                        <p>${this.item.price} $</p>
+                        <button 
+                            class="buy-btn" 
+                            name="buy"
+                            data-name="${this.item.product_name}"
+                            data-price="${this.item.price}"
+                            data-id="${this.item.id_product}"
+                        >Buy</button>
                     </div>
                 </div>`
     }
@@ -74,10 +65,8 @@ class Catalog extends List {
     constructor(basket, url = '/catalogData.json', container = '.catalog-items') {
         super(url, container);
         this.basket = basket;
-
     }
     _handleEvents() {
-
         document.querySelector(this.container).addEventListener('click', evt => {
             if (evt.target.name == 'buy') {
                 this.basket.add(evt.target.dataset);
@@ -89,7 +78,6 @@ class Catalog extends List {
 class Basket extends List {
     constructor(url = '/getBasket.json', container = '.basket-items', basket = true) {
         super(url, container, basket);
-
     }
     _handleEvents() {
         document.querySelector(this.container).addEventListener('click', evt => {
@@ -117,38 +105,11 @@ class Basket extends List {
 
     remove(itemId) {
         let find = this.items.find(el => el.id_product == itemId);
-        if (find.quantity == 0) {
-            this.items.splice(this.items.indexOf(find), 1);
-
-        } else  {
-            find.quantity--;
-        }
-        this._render();
         console.log('попытка удалить ' + itemId)
     }
-
-
-
-
-    busketCalcSum() {
-        document.querySelector('.basket__total-sum').textContent = this.totalSum();
-
-    }
-
-    totalSum() {
-        let sum = 0;
-
-        for (let i in this.item) {
-            console.log(i);
-
-        }
-
-        return sum;
-    }
-
 }
 
-class CatalogItem extends Item { }
+class CatalogItem extends Item {}
 
 class BasketItem extends Item {
     constructor(item) {
@@ -177,9 +138,7 @@ let connect = {
     'Basket': BasketItem
 }
 
-
 export default () => {
     let basket = new Basket();
     let catalog = new Catalog(basket);
 }
-

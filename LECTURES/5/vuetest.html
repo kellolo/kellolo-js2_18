@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,23 +12,28 @@
             width: 40%;
             margin: 0 auto
         }
+
         .post {
             border-radius: 5px;
             border: 2px solid grey;
             padding: 15px;
             margin-bottom: 10px
         }
+
         .post-footer {
             text-align: right
         }
+
         .font-it {
             font-style: italic
         }
+
         .red {
             color: red
         }
     </style>
 </head>
+
 <body>
     <div id="app">
         <button @click="showComments = !showComments"> {{ btnText }} </button>
@@ -36,7 +42,7 @@
         <div class="container" v-show="showComments">
             <div class="post" v-for="item of items">
                 <div class="user">
-                    <strong> {{ item.name }} </strong> 
+                    <strong> {{ item.name }} </strong>
                     <button @click="sayHi(item.name)">SayHi</button>
                 </div>
                 <div class="post-body">
@@ -76,7 +82,7 @@
             //хуки (внутренние события компонента)
             mounted() {
                 //_init()
-                fetch('https://jsonplaceholder.typicode.com/comments')
+                fetch('https://raw.githubusercontent.com/xdianovx/shop-json/master/res/catalogData.json')
                     .then(d => d.json())
                     .then(comments => { this.items = comments })
                     .finally(() => { console.log(this.items) })
@@ -84,4 +90,5 @@
         });
     </script>
 </body>
-</html>
+
+</html>sfdsdfsdf
