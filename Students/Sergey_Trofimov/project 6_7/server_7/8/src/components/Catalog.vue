@@ -17,8 +17,8 @@ export default {
     data() {
         return {
             items: [],
-            url: '/api/catalog',
-            // url: 'https://raw.githubusercontent.com/gavrilovem/catalogData/master/catalogData.json',
+            url: '/api/catalog'
+            //url: 'https://raw.githubusercontent.com/Sergey-TR/testrepo/master/dataCatalog.json'
         }
     },
     mounted() {

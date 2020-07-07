@@ -54,7 +54,7 @@
                         <details class="my_account_det">
                             <summary class="my_account_sum">My Account</summary>
                             <div class="my_account_checkout">
-                                <!-- <div class="basket-item"> -->
+                                <!-- <div class="basket-item">  -->
                                     <basket ref="basket" />
                                 <!-- </div> -->
                                 
