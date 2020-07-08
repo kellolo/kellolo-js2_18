@@ -20,8 +20,8 @@
 </template>
 
 <script>
-import Catalog from '../src/components/Catalog.vue'
-import Basket from '../src/components/Basket.vue'
+import Catalog from '../components/Catalog.vue'
+import Basket from '../components/Basket.vue'
 
 export default {
 	
