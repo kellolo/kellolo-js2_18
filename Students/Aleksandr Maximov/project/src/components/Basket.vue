@@ -13,7 +13,7 @@ export default {
     data() {
         return {
             items: [],
-            url: '/api/basket',
+            url: '/api/basket'
             //url: 'https://raw.githubusercontent.com/gavrilovem/catalogData/master/getBasket.json'
         }
     },
@@ -21,19 +21,63 @@ export default {
         add(item) {
             let find = this.items.find(el => el.id_product == item.id_product);
             if (!find) {
-                console.log('Создаю новый товар ' + item.product_name)
-                this.items.push(Object.assign({}, item, {quantity: 1}));
+                let newItem = Object.assign({}, item, {quantity: 1});
+                this.$parent.post(this.url, newItem)
+                .then(res => {
+                    if (res.status) {
+                        this.items.push(newItem);
+                        console.log(newItem);
+                    } else {
+                        console.log('ERR_ADD_ITEM:' + newItem.product_name);
+                    }
+                })
             } else {
-                console.log('Увеличиваем ' + item.product_name)
-                find.quantity++;
+                this.$parent.put(`/api/basket/${item.id_product}`, { amount: 1 })
+                .then(res => {
+                    if (res.status) {
+                        find.quantity++;
+                    } else {
+                        console.log('ERR_ADD_ITEM:' + item.product_name);
+                    }
+                    let date = new Date();
+                    let logging = JSON.stringify(find);
+                    let resultLog = (date +' '+ logging);
+
+                    console.log(resultLog);
+                    const fs = require("fs");
+                    fs.writeFile('logging.json', resultLog, function(err) {})
+                    fs.writeFile("./logging.json",resultLog);
+                })
             }
         },
         remove(item) {
             let find = this.items.find(el => el.id_product == item.id_product);
             if (find.quantity > 1) {
-                find.quantity--;
+                this.$parent.put(`/api/basket/${item.id_product}`, { amount: -1 })
+                .then(res => {
+                    if (res.status) {
+                        find.quantity--;
+                    } else {
+                        console.log('ERR_REMOVE_ITEM:' + item.product_name);
+                    }
+                })
             } else {
-                this.items.splice(this.items.indexOf(find), 1);
+                this.$parent.delete(`/api/basket/${item.id_product}`)
+                .then(res => {
+                    if (res.status) {
+                        this.items.splice(this.items.indexOf(find), 1);
+                    } else {
+                        console.log('ERR_REMOVE_ITEM:' + item.product_name);
+                    }
+                    let date = new Date();
+                    let logging = JSON.stringify(find);
+                    let resultLog = (date +' '+ logging);
+
+                    console.log(resultLog);
+                    const fs = require("fs");
+                    fs.writeFile('logging.json', resultLog, function(err) {})
+                    fs.writeFile("./logging.json",resultLog);
+                })
             }
         },
     },

@@ -1,42 +1,32 @@
 {
-  "name": "1",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "8",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --mode development",
-    "dev": "webpack-dev-server",
-    "api": "nodemon server"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@babel/core": "^7.10.3",
-    "@babel/preset-env": "^7.10.3",
-    "babel-loader": "^8.1.0",
-    "css-loader": "^3.6.0",
-    "html-webpack-plugin": "^4.3.0",
-    "mini-css-extract-plugin": "^0.9.0",
-    "nodemon": "^2.0.4",
-    "vue-loader": "^15.9.2",
-    "vue-template-compiler": "^2.6.11",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0"
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "api": "node server"
   },
   "dependencies": {
+    "api": "^2.1.6",
     "bootstrap": "^4.5.0",
-    "dex": "^1.1.0",
-    "express": "^4.17.1",
+    "core-js": "^3.6.5",
+    "def": "0.0.8",
+    "fs": "0.0.1-security",
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1",
-    "vue": "^2.6.11"
+    "serv": "^0.2.4",
+    "serve": "^11.3.2",
+    "vue": "^2.6.11",
+    "vue-router": "^3.2.0"
   },
-  "nodemonConfig": {
-    "ignore": [
-      "*.json"
-    ]
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.4.0",
+    "@vue/cli-plugin-router": "^4.4.0",
+    "@vue/cli-service": "^4.4.0",
+    "nodemon": "^2.0.4",
+    "sass": "^1.26.5",
+    "sass-loader": "^8.0.2",
+    "vue-template-compiler": "^2.6.11"
   }
 }
